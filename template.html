@@ -1,0 +1,409 @@
+<title>Friend di Frasi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: one narrow reading column. Sticky deck bar, a spread strip per deck, then
+   collapsible blocks of ten flip-tiles. English on the front, Italian (serif italic) on the back. */
+:root {
+  --bg: #eef0f3;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --ink: #18202e;
+  --muted: #697284;
+  --faint: #a3aab8;
+  --line: #dfe3ea;
+  --accent: #1f3fbf;
+  --back: #f4f6fd;
+  --back-line: #cdd6f4;
+  --shadow: 0 1px 2px rgba(24, 32, 46, .05), 0 2px 8px rgba(24, 32, 46, .04);
+
+  --tA: #3a6ee0; --tF: #d64f72; --tO: #8459d4; --tT: #c98a12;
+  --tE: #2e9a63; --tD: #6b7f90; --tP: #1c98a6;
+
+  --f-ui: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-it: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a; --surface: #171c25; --surface-2: #1c222d; --ink: #e8ebf1; --muted: #9098a8;
+    --faint: #5d6677; --line: #283041; --accent: #8da4ff; --back: #1a2133; --back-line: #34406a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3);
+    --tA: #6f97f2; --tF: #ee7c98; --tO: #a689ea; --tT: #e2ad45;
+    --tE: #5cc28d; --tD: #92a5b5; --tP: #4fc2cf;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a; --surface: #171c25; --surface-2: #1c222d; --ink: #e8ebf1; --muted: #9098a8;
+  --faint: #5d6677; --line: #283041; --accent: #8da4ff; --back: #1a2133; --back-line: #34406a;
+  --shadow: 0 1px 2px rgba(0,0,0,.3);
+  --tA: #6f97f2; --tF: #ee7c98; --tO: #a689ea; --tT: #e2ad45;
+  --tE: #5cc28d; --tD: #92a5b5; --tP: #4fc2cf;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-ui); font-size: 16px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+  -webkit-tap-highlight-color: transparent;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+.wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+
+/* ---------- top bar ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: 14px max(16px, env(safe-area-inset-left, 0px)) 12px;
+  border-bottom: 1px solid var(--line);
+}
+.top-in { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+h1 { margin: 0; font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em; }
+h1 em { font-family: var(--f-it); font-weight: 400; font-size: 1.12em; color: var(--accent); }
+.brand { align-items: center; }
+.zoom { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.zoom button { width: 38px; height: 32px; border-radius: 7px; display: grid; place-items: center; color: var(--faint); transition: background .2s, color .2s; }
+.zoom svg { width: 18px; height: 18px; fill: currentColor; }
+.zoom button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+
+/* ---------- compact zoom: thin rows, tag as a dot, more cards per screen ---------- */
+.compact .sections { gap: 8px; }
+.compact .sec-head { padding: 10px 14px; }
+.compact .cards { gap: 3px; padding: 0 6px 6px; }
+.compact .card { padding: 7px 10px; border-radius: 8px; }
+.compact .card-row { grid-template-columns: 1.6em 1fr; gap: 6px; }
+.compact .num { font-size: .66rem; padding-top: .2em; }
+.compact .card:not(.flipped) .body { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
+.compact .en { font-size: .86rem; line-height: 1.3; }
+.compact .tag { align-self: center; }
+.compact .tag .tl { display: none; }
+.compact .tag i { width: 7px; height: 7px; }
+.compact .it { font-size: 1.08rem; }
+.compact .en-sub { font-size: .74rem; }
+.compact .extra p { font-size: .92rem; }
+.compact .extra { padding-top: 5px; }
+
+.decks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--surface-2);
+  padding: 4px; border-radius: 12px; border: 1px solid var(--line); }
+.deck-btn {
+  padding: 8px 6px; border-radius: 9px; font-weight: 600; font-size: .95rem;
+  display: flex; align-items: baseline; justify-content: center; gap: 6px;
+  color: var(--muted); transition: background .2s, color .2s, box-shadow .2s;
+}
+.deck-btn small { font-weight: 500; font-size: .72rem; color: var(--faint); font-variant-numeric: tabular-nums; }
+.deck-btn[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.deck-btn[aria-selected="true"] small { color: var(--muted); }
+
+/* ---------- spread ---------- */
+.spread { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.spread-head { display: flex; justify-content: space-between; align-items: baseline; }
+.label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.spread-head .label + span { font-size: .78rem; color: var(--faint); }
+.bar { display: flex; height: 8px; border-radius: 99px; overflow: hidden; gap: 2px; }
+.bar span { background: var(--c); transition: flex-grow .4s ease, opacity .2s; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 10px; min-height: 36px;
+  border-radius: 99px; border: 1px solid var(--line); background: var(--surface);
+  font-size: .8rem; font-weight: 500; color: var(--ink); transition: opacity .2s, border-color .2s, background .2s;
+}
+.chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+.chip b { font-weight: 500; color: var(--faint); font-variant-numeric: tabular-nums; }
+.filtering .chip { opacity: .45; }
+.filtering .chip.on { opacity: 1; border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, var(--surface)); }
+.filtering .bar span { opacity: .25; }
+.filtering .bar span.on { opacity: 1; }
+
+/* ---------- tools ---------- */
+.tools { display: flex; gap: 8px; flex-wrap: wrap; }
+.tool {
+  font-size: .8rem; font-weight: 500; color: var(--muted); padding: 6px 14px; min-height: 36px;
+  border-radius: 99px; border: 1px solid var(--line); transition: color .2s, border-color .2s, background .2s;
+}
+.tool:hover { color: var(--ink); }
+.tool[aria-pressed="true"] { color: var(--accent); border-color: var(--back-line); background: var(--back); }
+
+/* ---------- sections ---------- */
+.sections { display: flex; flex-direction: column; gap: 10px; }
+.sec { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+.sec-head {
+  width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+  padding: 14px 16px; text-align: left;
+}
+.sec-range { font-weight: 600; font-size: .95rem; font-variant-numeric: tabular-nums; min-width: 4.2em; }
+.sec-range span { color: var(--faint); font-weight: 500; }
+.dots { display: flex; gap: 4px; flex-wrap: wrap; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); transition: opacity .2s; }
+.filtering .dots i:not(.on) { opacity: .18; }
+.sec-meta { display: flex; align-items: center; gap: 8px; color: var(--faint); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.chev { width: 18px; height: 18px; transition: transform .3s cubic-bezier(.3,.7,.2,1); color: var(--muted); }
+.sec[data-open="true"] .chev { transform: rotate(180deg); }
+.sec-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(.3,.7,.2,1); }
+.sec[data-open="true"] .sec-body { grid-template-rows: 1fr; }
+.sec-inner { overflow: hidden; min-height: 0; }
+.cards { display: flex; flex-direction: column; gap: 8px; padding: 0 10px 10px; }
+
+/* ---------- card tiles ---------- */
+.card {
+  position: relative; border-radius: 11px; border: 1px solid var(--line); background: var(--surface-2);
+  padding: 13px 14px; cursor: pointer; user-select: none; -webkit-user-select: none;
+  touch-action: manipulation; transition: opacity .2s, background .25s, border-color .25s;
+  transform-origin: 50% 50%;
+}
+.card-row { display: grid; grid-template-columns: 1.7em 1fr; gap: 8px; align-items: start; }
+.num { font-size: .72rem; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: .28em; }
+.body { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.en { margin: 0; font-size: 1rem; font-weight: 500; overflow-wrap: anywhere; }
+.tag {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 5px;
+  font-size: .68rem; font-weight: 600; letter-spacing: .03em; color: var(--c);
+}
+.tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
+.filtering .card:not(.on) { opacity: .32; }
+
+.card.flipped { background: var(--back); border-color: var(--back-line); }
+.it { margin: 0; font-family: var(--f-it); font-style: italic; font-size: 1.32rem; line-height: 1.25; overflow-wrap: anywhere; }
+.it.missing { font-family: var(--f-ui); font-style: normal; font-size: .9rem; color: var(--faint); }
+.en-sub { margin: 0; font-size: .8rem; color: var(--muted); }
+.extra { display: flex; flex-direction: column; gap: 4px; padding-top: 8px; margin-top: 2px; border-top: 1px dashed var(--back-line); }
+.extra p { margin: 0; font-family: var(--f-it); font-size: 1.05rem; line-height: 1.3; color: var(--ink); }
+.extra .label { font-size: .62rem; }
+.chk { margin: 0; font-size: .74rem; color: var(--tF); }
+
+.empty { padding: 32px 0; text-align: center; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <h1>Friend di <em>Frasi</em></h1>
+      <div class="zoom" role="group" aria-label="Card size">
+        <button type="button" data-zoom="comfy" aria-pressed="true" aria-label="Large cards">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3.5" width="14" height="5.5" rx="1.6"/><rect x="3" y="11" width="14" height="5.5" rx="1.6"/></svg>
+        </button>
+        <button type="button" data-zoom="compact" aria-pressed="false" aria-label="Compact cards">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="3" rx="1"/><rect x="3" y="8.5" width="14" height="3" rx="1"/><rect x="3" y="14" width="14" height="3" rx="1"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="decks" role="tablist" aria-label="Decks" id="decks"></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="spread" id="spread" aria-label="Topic spread"></section>
+  <div class="tools">
+    <button class="tool" id="openAll" type="button">Open all</button>
+    <button class="tool" id="closeAll" type="button">Close all</button>
+    <button class="tool" id="flipAll" type="button" aria-pressed="false">Show all Italian</button>
+  </div>
+  <main class="sections" id="sections"></main>
+</div>
+
+<script>
+const DECKS = /*__DATA__*/[];
+const TAGS = {
+  A: "Asking", F: "Feelings", O: "Opinions", T: "Plans & time",
+  E: "Food & out", D: "Day to day", P: "People"
+};
+const ORDER = ["A", "F", "O", "T", "E", "D", "P"];
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("fdf:" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem("fdf:" + k, JSON.stringify(v)); } catch {} }
+};
+
+let deckId = store.get("deck", DECKS[0] && DECKS[0].id);
+if (!DECKS.some(d => d.id === deckId)) deckId = DECKS[0].id;
+let filter = null;
+const flipped = {};             // deckId -> Set of card numbers
+const openSecs = store.get("open", {}); // deckId -> [section index]
+
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const deck = () => DECKS.find(d => d.id === deckId);
+const flipSet = () => (flipped[deckId] ||= new Set());
+
+function renderDecks() {
+  $("#decks").innerHTML = DECKS.map(d => `
+    <button class="deck-btn" role="tab" type="button" data-deck="${d.id}" aria-selected="${d.id === deckId}">
+      ${d.id}<small>${d.cards.length}</small>
+    </button>`).join("");
+}
+
+function renderSpread() {
+  const cards = deck().cards;
+  const counts = Object.fromEntries(ORDER.map(t => [t, 0]));
+  cards.forEach(c => counts[c.t]++);
+  const used = ORDER.filter(t => counts[t]);
+  $("#spread").innerHTML = `
+    <div class="spread-head"><span class="label">Spread</span><span>${cards.length} cards · ${Math.ceil(cards.length / 10)} sections</span></div>
+    <div class="bar">${used.map(t => `<span data-t="${t}" style="--c:var(--t${t});flex-grow:${counts[t]}"></span>`).join("")}</div>
+    <div class="legend">${used.map(t => `
+      <button class="chip" type="button" data-filter="${t}" style="--c:var(--t${t})" aria-pressed="false">
+        <i></i>${TAGS[t]}<b>${counts[t]}</b>
+      </button>`).join("")}</div>`;
+  applyFilter();
+}
+
+function front(c) {
+  return `<div class="card-row"><span class="num">${c.n}</span><div class="body">
+    <p class="en">${esc(c.en)}</p>
+    <span class="tag" title="${TAGS[c.t]}"><i></i><span class="tl">${TAGS[c.t]}</span></span></div></div>`;
+}
+function back(c) {
+  const it = c.it ? `<p class="it" lang="it">${esc(c.it)}</p>` : `<p class="it missing">No Italian in the sheet yet</p>`;
+  const ex = c.ex ? `<div class="extra"><span class="label">E.g.</span><p lang="it">${esc(c.ex)}</p></div>` : "";
+  const no = c.no ? `<div class="extra"><span class="label">Note</span><p lang="it">${esc(c.no)}</p></div>` : "";
+  const chk = c.chk ? `<p class="chk">Check in sheet: ${esc(c.chk)}</p>` : "";
+  return `<div class="card-row"><span class="num">${c.n}</span><div class="body">
+    ${it}<p class="en-sub">${esc(c.en)}</p>${ex}${no}${chk}</div></div>`;
+}
+
+function renderSections() {
+  const cards = deck().cards, fs = flipSet();
+  const open = new Set(openSecs[deckId] || [0]);
+  let html = "";
+  for (let i = 0; i < cards.length; i += 10) {
+    const chunk = cards.slice(i, i + 10), s = i / 10;
+    const a = chunk[0].n, b = chunk[chunk.length - 1].n;
+    html += `<section class="sec" data-sec="${s}" data-open="${open.has(s)}">
+      <button class="sec-head" type="button" aria-expanded="${open.has(s)}">
+        <span class="sec-range">${a}<span>–</span>${b}</span>
+        <span class="dots">${chunk.map(c => `<i data-t="${c.t}" style="--c:var(--t${c.t})"></i>`).join("")}</span>
+        <span class="sec-meta"><span class="match"></span>
+          <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <div class="sec-body"><div class="sec-inner"><div class="cards">
+        ${chunk.map(c => `<article class="card${fs.has(c.n) ? " flipped" : ""}" tabindex="0" data-n="${c.n}" data-t="${c.t}" style="--c:var(--t${c.t})"
+           aria-label="Card ${c.n}. Double-tap or press Enter to flip.">${fs.has(c.n) ? back(c) : front(c)}</article>`).join("")}
+      </div></div></div>
+    </section>`;
+  }
+  $("#sections").innerHTML = html || `<p class="empty">No cards in this deck yet.</p>`;
+  syncFlipAll();
+  applyFilter();
+}
+
+function render() { renderDecks(); renderSpread(); renderSections(); }
+
+/* ---------- filter (highlights, never reorders) ---------- */
+function applyFilter() {
+  document.body.classList.toggle("filtering", !!filter);
+  document.querySelectorAll("[data-t]").forEach(el => el.classList.toggle("on", el.dataset.t === filter));
+  document.querySelectorAll(".chip").forEach(el => el.setAttribute("aria-pressed", el.dataset.filter === filter));
+  document.querySelectorAll(".sec").forEach(sec => {
+    const n = filter ? sec.querySelectorAll(`.card[data-t="${filter}"]`).length : 0;
+    sec.querySelector(".match").textContent = filter ? (n ? `${n}` : "–") : "";
+  });
+}
+
+/* ---------- sections ---------- */
+function saveOpen() {
+  openSecs[deckId] = [...document.querySelectorAll('.sec[data-open="true"]')].map(s => +s.dataset.sec);
+  store.set("open", openSecs);
+}
+function setOpen(sec, v) {
+  sec.dataset.open = v;
+  sec.querySelector(".sec-head").setAttribute("aria-expanded", v);
+}
+
+/* ---------- flip ---------- */
+function cardData(n) { return deck().cards.find(c => c.n === n); }
+function flip(el, toBack) {
+  const n = +el.dataset.n, c = cardData(n), fs = flipSet();
+  toBack = toBack ?? !fs.has(n);
+  if (toBack === fs.has(n)) return;
+  toBack ? fs.add(n) : fs.delete(n);
+  const swap = () => { el.innerHTML = toBack ? back(c) : front(c); el.classList.toggle("flipped", toBack); };
+  if (reduced || !el.animate) { swap(); syncFlipAll(); return; }
+  el.animate([{ transform: "perspective(900px) rotateX(0deg)" }, { transform: "perspective(900px) rotateX(90deg)" }],
+    { duration: 140, easing: "cubic-bezier(.5,0,1,.6)" }).onfinish = () => {
+      swap();
+      el.animate([{ transform: "perspective(900px) rotateX(-90deg)" }, { transform: "perspective(900px) rotateX(0deg)" }],
+        { duration: 220, easing: "cubic-bezier(.2,.8,.3,1)" });
+    };
+  syncFlipAll();
+}
+function syncFlipAll() {
+  const all = deck().cards.length > 0 && flipSet().size === deck().cards.length;
+  $("#flipAll").setAttribute("aria-pressed", all);
+  $("#flipAll").textContent = all ? "Show all English" : "Show all Italian";
+}
+
+/* ---------- zoom ---------- */
+function setZoom(z) {
+  document.body.classList.toggle("compact", z === "compact");
+  document.querySelectorAll("[data-zoom]").forEach(b => b.setAttribute("aria-pressed", b.dataset.zoom === z));
+  store.set("zoom", z);
+}
+document.querySelector(".zoom").addEventListener("click", e => {
+  const b = e.target.closest("[data-zoom]"); if (b) setZoom(b.dataset.zoom);
+});
+setZoom(store.get("zoom", "comfy"));
+
+/* ---------- events ---------- */
+$("#decks").addEventListener("click", e => {
+  const b = e.target.closest(".deck-btn"); if (!b || b.dataset.deck === deckId) return;
+  deckId = b.dataset.deck; store.set("deck", deckId); filter = null;
+  render(); window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+});
+$("#spread").addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  filter = filter === c.dataset.filter ? null : c.dataset.filter;
+  applyFilter();
+});
+$("#sections").addEventListener("click", e => {
+  const h = e.target.closest(".sec-head"); if (!h) return;
+  const sec = h.parentElement; setOpen(sec, sec.dataset.open !== "true"); saveOpen();
+});
+$("#openAll").addEventListener("click", () => { document.querySelectorAll(".sec").forEach(s => setOpen(s, true)); saveOpen(); });
+$("#closeAll").addEventListener("click", () => { document.querySelectorAll(".sec").forEach(s => setOpen(s, false)); saveOpen(); });
+$("#flipAll").addEventListener("click", () => {
+  const toBack = flipSet().size !== deck().cards.length;
+  document.querySelectorAll(".card").forEach(el => flip(el, toBack));
+  if (toBack) deck().cards.forEach(c => flipSet().add(c.n)); else flipSet().clear();
+  syncFlipAll();
+});
+
+// Double-tap detection that works for touch and mouse, and ignores scroll drags.
+let lastTap = { el: null, t: 0 }, down = null;
+const sections = $("#sections");
+sections.addEventListener("pointerdown", e => { down = { x: e.clientX, y: e.clientY }; });
+sections.addEventListener("pointerup", e => {
+  const el = e.target.closest(".card"); if (!el || !down) return;
+  if (Math.hypot(e.clientX - down.x, e.clientY - down.y) > 10) { lastTap = { el: null, t: 0 }; return; }
+  const now = performance.now();
+  if (lastTap.el === el && now - lastTap.t < 330) { flip(el); lastTap = { el: null, t: 0 }; }
+  else lastTap = { el, t: now };
+});
+sections.addEventListener("dblclick", e => { if (e.target.closest(".card")) e.preventDefault(); });
+sections.addEventListener("keydown", e => {
+  const el = e.target.closest(".card");
+  if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); flip(el); }
+});
+
+render();
+</script>

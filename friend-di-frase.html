@@ -1,0 +1,409 @@
+<title>Friend di Frasi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: one narrow reading column. Sticky deck bar, a spread strip per deck, then
+   collapsible blocks of ten flip-tiles. English on the front, Italian (serif italic) on the back. */
+:root {
+  --bg: #eef0f3;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --ink: #18202e;
+  --muted: #697284;
+  --faint: #a3aab8;
+  --line: #dfe3ea;
+  --accent: #1f3fbf;
+  --back: #f4f6fd;
+  --back-line: #cdd6f4;
+  --shadow: 0 1px 2px rgba(24, 32, 46, .05), 0 2px 8px rgba(24, 32, 46, .04);
+
+  --tA: #3a6ee0; --tF: #d64f72; --tO: #8459d4; --tT: #c98a12;
+  --tE: #2e9a63; --tD: #6b7f90; --tP: #1c98a6;
+
+  --f-ui: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-it: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a; --surface: #171c25; --surface-2: #1c222d; --ink: #e8ebf1; --muted: #9098a8;
+    --faint: #5d6677; --line: #283041; --accent: #8da4ff; --back: #1a2133; --back-line: #34406a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3);
+    --tA: #6f97f2; --tF: #ee7c98; --tO: #a689ea; --tT: #e2ad45;
+    --tE: #5cc28d; --tD: #92a5b5; --tP: #4fc2cf;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a; --surface: #171c25; --surface-2: #1c222d; --ink: #e8ebf1; --muted: #9098a8;
+  --faint: #5d6677; --line: #283041; --accent: #8da4ff; --back: #1a2133; --back-line: #34406a;
+  --shadow: 0 1px 2px rgba(0,0,0,.3);
+  --tA: #6f97f2; --tF: #ee7c98; --tO: #a689ea; --tT: #e2ad45;
+  --tE: #5cc28d; --tD: #92a5b5; --tP: #4fc2cf;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-ui); font-size: 16px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+  -webkit-tap-highlight-color: transparent;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+.wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+
+/* ---------- top bar ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: 14px max(16px, env(safe-area-inset-left, 0px)) 12px;
+  border-bottom: 1px solid var(--line);
+}
+.top-in { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+h1 { margin: 0; font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em; }
+h1 em { font-family: var(--f-it); font-weight: 400; font-size: 1.12em; color: var(--accent); }
+.brand { align-items: center; }
+.zoom { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.zoom button { width: 38px; height: 32px; border-radius: 7px; display: grid; place-items: center; color: var(--faint); transition: background .2s, color .2s; }
+.zoom svg { width: 18px; height: 18px; fill: currentColor; }
+.zoom button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+
+/* ---------- compact zoom: thin rows, tag as a dot, more cards per screen ---------- */
+.compact .sections { gap: 8px; }
+.compact .sec-head { padding: 10px 14px; }
+.compact .cards { gap: 3px; padding: 0 6px 6px; }
+.compact .card { padding: 7px 10px; border-radius: 8px; }
+.compact .card-row { grid-template-columns: 1.6em 1fr; gap: 6px; }
+.compact .num { font-size: .66rem; padding-top: .2em; }
+.compact .card:not(.flipped) .body { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
+.compact .en { font-size: .86rem; line-height: 1.3; }
+.compact .tag { align-self: center; }
+.compact .tag .tl { display: none; }
+.compact .tag i { width: 7px; height: 7px; }
+.compact .it { font-size: 1.08rem; }
+.compact .en-sub { font-size: .74rem; }
+.compact .extra p { font-size: .92rem; }
+.compact .extra { padding-top: 5px; }
+
+.decks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--surface-2);
+  padding: 4px; border-radius: 12px; border: 1px solid var(--line); }
+.deck-btn {
+  padding: 8px 6px; border-radius: 9px; font-weight: 600; font-size: .95rem;
+  display: flex; align-items: baseline; justify-content: center; gap: 6px;
+  color: var(--muted); transition: background .2s, color .2s, box-shadow .2s;
+}
+.deck-btn small { font-weight: 500; font-size: .72rem; color: var(--faint); font-variant-numeric: tabular-nums; }
+.deck-btn[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.deck-btn[aria-selected="true"] small { color: var(--muted); }
+
+/* ---------- spread ---------- */
+.spread { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.spread-head { display: flex; justify-content: space-between; align-items: baseline; }
+.label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.spread-head .label + span { font-size: .78rem; color: var(--faint); }
+.bar { display: flex; height: 8px; border-radius: 99px; overflow: hidden; gap: 2px; }
+.bar span { background: var(--c); transition: flex-grow .4s ease, opacity .2s; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 10px; min-height: 36px;
+  border-radius: 99px; border: 1px solid var(--line); background: var(--surface);
+  font-size: .8rem; font-weight: 500; color: var(--ink); transition: opacity .2s, border-color .2s, background .2s;
+}
+.chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+.chip b { font-weight: 500; color: var(--faint); font-variant-numeric: tabular-nums; }
+.filtering .chip { opacity: .45; }
+.filtering .chip.on { opacity: 1; border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, var(--surface)); }
+.filtering .bar span { opacity: .25; }
+.filtering .bar span.on { opacity: 1; }
+
+/* ---------- tools ---------- */
+.tools { display: flex; gap: 8px; flex-wrap: wrap; }
+.tool {
+  font-size: .8rem; font-weight: 500; color: var(--muted); padding: 6px 14px; min-height: 36px;
+  border-radius: 99px; border: 1px solid var(--line); transition: color .2s, border-color .2s, background .2s;
+}
+.tool:hover { color: var(--ink); }
+.tool[aria-pressed="true"] { color: var(--accent); border-color: var(--back-line); background: var(--back); }
+
+/* ---------- sections ---------- */
+.sections { display: flex; flex-direction: column; gap: 10px; }
+.sec { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+.sec-head {
+  width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+  padding: 14px 16px; text-align: left;
+}
+.sec-range { font-weight: 600; font-size: .95rem; font-variant-numeric: tabular-nums; min-width: 4.2em; }
+.sec-range span { color: var(--faint); font-weight: 500; }
+.dots { display: flex; gap: 4px; flex-wrap: wrap; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); transition: opacity .2s; }
+.filtering .dots i:not(.on) { opacity: .18; }
+.sec-meta { display: flex; align-items: center; gap: 8px; color: var(--faint); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.chev { width: 18px; height: 18px; transition: transform .3s cubic-bezier(.3,.7,.2,1); color: var(--muted); }
+.sec[data-open="true"] .chev { transform: rotate(180deg); }
+.sec-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(.3,.7,.2,1); }
+.sec[data-open="true"] .sec-body { grid-template-rows: 1fr; }
+.sec-inner { overflow: hidden; min-height: 0; }
+.cards { display: flex; flex-direction: column; gap: 8px; padding: 0 10px 10px; }
+
+/* ---------- card tiles ---------- */
+.card {
+  position: relative; border-radius: 11px; border: 1px solid var(--line); background: var(--surface-2);
+  padding: 13px 14px; cursor: pointer; user-select: none; -webkit-user-select: none;
+  touch-action: manipulation; transition: opacity .2s, background .25s, border-color .25s;
+  transform-origin: 50% 50%;
+}
+.card-row { display: grid; grid-template-columns: 1.7em 1fr; gap: 8px; align-items: start; }
+.num { font-size: .72rem; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: .28em; }
+.body { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.en { margin: 0; font-size: 1rem; font-weight: 500; overflow-wrap: anywhere; }
+.tag {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 5px;
+  font-size: .68rem; font-weight: 600; letter-spacing: .03em; color: var(--c);
+}
+.tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
+.filtering .card:not(.on) { opacity: .32; }
+
+.card.flipped { background: var(--back); border-color: var(--back-line); }
+.it { margin: 0; font-family: var(--f-it); font-style: italic; font-size: 1.32rem; line-height: 1.25; overflow-wrap: anywhere; }
+.it.missing { font-family: var(--f-ui); font-style: normal; font-size: .9rem; color: var(--faint); }
+.en-sub { margin: 0; font-size: .8rem; color: var(--muted); }
+.extra { display: flex; flex-direction: column; gap: 4px; padding-top: 8px; margin-top: 2px; border-top: 1px dashed var(--back-line); }
+.extra p { margin: 0; font-family: var(--f-it); font-size: 1.05rem; line-height: 1.3; color: var(--ink); }
+.extra .label { font-size: .62rem; }
+.chk { margin: 0; font-size: .74rem; color: var(--tF); }
+
+.empty { padding: 32px 0; text-align: center; color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <h1>Friend di <em>Frasi</em></h1>
+      <div class="zoom" role="group" aria-label="Card size">
+        <button type="button" data-zoom="comfy" aria-pressed="true" aria-label="Large cards">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3.5" width="14" height="5.5" rx="1.6"/><rect x="3" y="11" width="14" height="5.5" rx="1.6"/></svg>
+        </button>
+        <button type="button" data-zoom="compact" aria-pressed="false" aria-label="Compact cards">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="3" rx="1"/><rect x="3" y="8.5" width="14" height="3" rx="1"/><rect x="3" y="14" width="14" height="3" rx="1"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="decks" role="tablist" aria-label="Decks" id="decks"></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="spread" id="spread" aria-label="Topic spread"></section>
+  <div class="tools">
+    <button class="tool" id="openAll" type="button">Open all</button>
+    <button class="tool" id="closeAll" type="button">Close all</button>
+    <button class="tool" id="flipAll" type="button" aria-pressed="false">Show all Italian</button>
+  </div>
+  <main class="sections" id="sections"></main>
+</div>
+
+<script>
+const DECKS = [{"id": "1.0", "cards": [{"n": 1, "en": "I think _ will like it", "it": "Penso che gli piaccia il canguro", "ex": "Penso che gli/le piaccia il canguro", "t": "O"}, {"n": 2, "en": "thank you for _", "it": "Grazie per essere venuti a prendermi", "t": "P"}, {"n": 3, "en": "pass me _", "it": "Mi potresti passare", "t": "A"}, {"n": 4, "en": "open for me_", "it": "Mi potrebbe aprire la porta della machina", "ex": "Mi potrebbe aprire la porta della machina (mi apri la porta)", "t": "A"}, {"n": 5, "en": "tell me when _", "it": "Dimmi quando basta", "t": "A"}, {"n": 6, "en": "better than expected_", "it": "è andata meglio del previsto", "ex": "Ho dormito meglio del previsto", "t": "O"}, {"n": 7, "en": "Remind me _", "it": "Ricordami di lavarlo..... ti ricorderò", "t": "A"}, {"n": 8, "en": "Whats inside _?", "it": "cosa c'è dentro?", "t": "A"}, {"n": 9, "en": "How we doing_?", "it": "Come siamo messi?", "t": "A"}, {"n": 10, "en": "Want half_?", "it": "ne vuoi la metà?....vuoi un morso?", "ex": "vuoi un morso?", "t": "E"}, {"n": 11, "en": "Phone dead _", "it": "il mio telefono è scarico", "t": "D"}, {"n": 12, "en": "Remind you of _", "it": "Ti ricorda me?... Mi somiglia?", "ex": "Mi somiglia", "t": "P"}, {"n": 13, "en": "already asleep_", "it": "Quando ho acceso la serie, ti eri già addormentata... Quando ho acceso la serie, si era già addormentata.", "ex": "Quando ho acceso la serie, si era già addormentata.", "t": "D"}, {"n": 14, "en": "pronuciation_??", "it": "Non so come si pronuncia... correggetemi la pronuncia", "t": "A"}, {"n": 15, "en": "May i ask_?", "it": "Posso chiederti un po’ di pane?", "ex": "Posso chiederti una cosa?", "t": "A"}, {"n": 16, "en": "He remembered me_", "it": "Lui si ricordava di me", "ex": "Ti sei ricordato di me", "t": "P"}, {"n": 17, "en": "Miss me_?", "it": "Ti sono mancato?", "t": "P"}, {"n": 18, "en": "It's been a while _", "it": "È passato molto tempo dall'ultima volta che ho mangiato così bene.", "ex": "E passato {un sacco di}{molto}{tanto} tempo {da quando}{dall'ultima volta che} ...ho preso un volo da qui ...ho mangiato così bene", "t": "T"}, {"n": 19, "en": "we agree on_", "it": "siamo d’accordo sul fatto che", "t": "O"}, {"n": 20, "en": "last time we saw each_", "it": "L’ultima volta che ci siamo visti…", "t": "P"}, {"n": 21, "en": "Could u give me_", "it": "Posso avere due pezzi di pizza ?", "t": "E"}, {"n": 22, "en": "u just jelly_", "it": "Sei solo gelosa", "t": "F"}, {"n": 23, "en": "when u close_?", "it": "Scusa ma tra quanto chiudete", "t": "E"}, {"n": 24, "en": "when u's open?_", "it": "A che ora aprite?....A che ora apre il supermercato?", "t": "E"}, {"n": 25, "en": "watch out_", "it": "Attenti a questo... Attenta a questo", "ex": "Attenta a questo (f)", "t": "D"}, {"n": 26, "en": "as long as_", "it": "Ti aiuto, basta che mi prometti di darmi un baccino..", "ex": "vengo, ma solo se ci fermiamo prima qui", "t": "O"}, {"n": 27, "en": "Would've loved to", "it": "Mi sarebbe piaciuto.", "ex": "Odio quando vengo rimproverato, soprattutto per cose piccole", "t": "F"}, {"n": 28, "en": "Hate being told off", "it": "Odio quando mi rimproverano, soprattutto per cose piccole.", "t": "F"}, {"n": 29, "en": "Annoys me when", "it": "Mi dà fastidio quando mi rimproverano per sciocchezze.", "t": "F"}, {"n": 30, "en": "2nd screen_changes everything", "it": "Avere un secondo schermo cambia tutto. Fa tutta la differenza.", "t": "O"}, {"n": 31, "en": "Depends... delay", "it": "Dipende dall’autobus e dal ritardo", "t": "O"}, {"n": 32, "en": "Depends... weather", "it": "Dipende dal tempo. Dipende dal lavoro", "t": "O"}, {"n": 33, "en": "Depends.. situation", "it": "Dipende dalla situazione e dipende da come va", "t": "O"}, {"n": 34, "en": "Its so massive_", "it": "Ma quanto enorme!", "t": "F"}, {"n": 35, "en": "Its so beautiful _", "it": "Ma quanto è bello!", "t": "F"}, {"n": 36, "en": "Take it away?", "it": "È possibile portarlo via?", "t": "E"}, {"n": 37, "en": "Best ever..", "it": "il posto più bello che tu abbia mai visitato", "t": "O"}, {"n": 38, "en": "Best i've had..", "it": "Il migliore che tu abbia mai mangiato.", "ex": "la cosa più strana che abbia mai visto; il posto più bello che tu abbia mai visitato", "t": "E"}, {"n": 39, "en": "How many degress?", "it": "Quanti gradi ci sono oggi?", "ex": "ci sono trenta gradi", "t": "D"}, {"n": 40, "en": "Requires patience", "it": "La pazienza che ci vuole", "t": "O"}, {"n": 41, "en": "Were undecided", "it": "Eravamo indecisi un attimo", "t": "O"}, {"n": 42, "en": "im destroyed", "it": "Ieri ho lavorato fino a tardi, oggi mi sento un po’ distrutto. È stata una settimana pesante, mi sento distrutto.", "t": "F"}, {"n": 43, "en": "Not sure it fits/works", "it": "Non so se ci sta.", "t": "O"}, {"n": 44, "en": "Thats a you problem", "it": "Cavoli tuoi.", "t": "F"}, {"n": 45, "en": "Heading home", "it": "Sto tornando verso casa ; Sto andando a casa.", "t": "T"}, {"n": 46, "en": "I was just about to __", "it": "Stavo giusto per andare via.", "t": "T"}, {"n": 47, "en": "Since im not allowed..", "it": "Dato che non mi è più permesso comprare cibo spazzatura..", "t": "D"}, {"n": 48, "en": "What does it look like?", "it": "Che aspetto ha?", "t": "A"}, {"n": 49, "en": "Unless you want to..", "it": "Io resterei qui, a meno che tu non voglia andare.", "t": "T"}, {"n": 50, "en": "Think it will taste good_", "it": "Secondo me sarà buono... mi sa che sarà buono.. Secondo me verrà buono.", "t": "E"}, {"n": 51, "en": "Spell it?", "it": "Come si scrive ?", "t": "A"}, {"n": 52, "en": "Thought you meant", "it": "Pensavo che intendessi", "t": "O"}, {"n": 53, "en": "There a powerpoint?", "it": "C'è una presa ?", "t": "A"}, {"n": 54, "en": "Im shocked", "it": "Sono un po' shockate", "t": "F"}, {"n": 55, "en": "It doesn't inspire", "it": "non mi ispira", "t": "O"}, {"n": 56, "en": "I reckon ill do it like this", "it": "Mi sa che faccio cosi", "t": "O"}, {"n": 57, "en": "Can you tell me...", "it": "Mi sai dire dov’è la stazione?", "t": "A"}, {"n": 58, "en": "Can i pay with card?", "it": "Posso pagare con carta", "t": "E"}, {"n": 59, "en": "Ill let you know later..", "it": "Ti aggiorno più tardi", "t": "T"}, {"n": 60, "en": "You're angry", "it": "Sei arrabbiata", "t": "F"}, {"n": 61, "en": "From now on", "it": "D’ora in poi studio ogni giorno.", "ex": "D’ora in poi facciamo così.", "t": "T"}, {"n": 62, "en": "Would have thought - drink", "it": "Avrei pensato che l'avresti già bevuto....... Pensavo che l’avessi già bevuto.", "t": "O"}, {"n": 63, "en": "Would have thought - done", "it": "Avrei pensato che l’avresti già fatto......Pensavo che l’avessi già fatto.", "t": "O"}, {"n": 64, "en": "Would have thought - alrerady known", "it": "Avrei pensato che lo sapessi già......Pensavo che lo sapessi.", "t": "O"}, {"n": 65, "en": "Would have thought - already left", "it": "Avrei pensato che saresti già partito......Pensavo che fossi già partito.", "t": "O"}, {"n": 66, "en": "Would have thought - already seen", "it": "Avrei pensato che l’avresti già visto........Pensavo che l’avessi già visto", "t": "O"}, {"n": 67, "en": "I dont like this one as much", "it": "Questo non mi piace quanto l’altro.", "t": "O"}, {"n": 68, "en": "Before you... i was (gerund).....", "it": "Prima che venissi, stavo leggendo.", "t": "T"}, {"n": 69, "en": "I had already.... before you ....", "it": "Avevo già mangiato prima che me lo dicessi.", "t": "T"}, {"n": 70, "en": "Before you leave, let’s talk for a moment.", "it": "Prima che tu parta, parliamo un attimo.", "t": "T"}, {"n": 71, "en": "Before you go to sleep, close the window.", "it": "Prima che tu vada a dormire, chiudi la finestra.", "t": "T"}, {"n": 72, "en": "before you... i was just about to...", "it": "Prima che mi chiamassi, stavo per sistemare la bici.", "t": "T"}, {"n": 73, "en": "we are moving to...", "it": "Ci trasferiamo a San Salvario a maggio.", "t": "T"}, {"n": 74, "en": "you know what... lets do it", "it": "Sai che c’è? Lo facciamo.", "t": "T"}, {"n": 75, "en": "Worst case..", "it": "Nel peggiore dei casi mangiamo fuori - Al massimo prendiamo un taxi.", "t": "T"}, {"n": 76, "en": "We had something come up, cant make it", "it": "", "t": "T"}, {"n": 77, "en": "I expected more, you have disappointed me", "it": "Mi aspettavo di più, mi hai deluso", "t": "F"}, {"n": 78, "en": "I didnt feel great about it (i felt bad about it)", "it": "Ci sono rimasto male", "t": "F"}, {"n": 79, "en": "You lied, you told a lie, you are a liar", "it": "Hai mentito, Hai detto una bugia, Sei un bugiarda", "t": "F"}, {"n": 80, "en": "Until - i have had my coffee, ill wait until you arrive", "it": "Nessuno mi parli finché non avrò bevuto, Ti aspetto finché non arrivi.", "ex": "fino a quando arrivo, Non esco fino a quando finisco (fino a quando or finche non)", "no": "Non esco finché non finisco. ⭐ Non esco fino a quando finisco.", "t": "T"}, {"n": 81, "en": "While it lasted", "it": "È stato bello finché è durato", "ex": "finche used as (while/as long as)", "t": "F"}, {"n": 82, "en": "Regarding the ...", "it": "Riguardo al viaggio, cosa facciamo?... Per il viaggio, che facciamo?... A proposito di ieri, dove è finito?", "ex": "Per + topic → casual everyday organizing/planning; Riguardo a → more explicit “regarding”; A proposito di → introduces a topic naturally in conversation", "t": "O"}, {"n": 83, "en": "I would like to ...", "it": "Mi piacerebbe vederli, Mi piacerebbe vederti, Mi piacerebbe viaggiare di più.", "t": "F"}, {"n": 84, "en": "Have you even been?", "it": "Sei mai stato in Australia?...  Sei mai stato a Roma? ... Sono da Australia, ci sei mai stato?,", "no": "più naturale quando il luogo è già chiaro", "t": "A"}, {"n": 85, "en": "Im telling you.. im not worried at all", "it": "Ti avviso, non sono affatto preoccupato, Non sono per niente preoccupato.", "ex": "Non capisco affatto, Non mi piace affatto", "t": "F"}, {"n": 86, "en": "Do you feel up to..", "it": "Te la senti di uscire", "t": "A"}, {"n": 87, "en": "Ordering Takeaway pizzas", "it": "Fate anche d’asporto? - Posso ordinare una pizza da asporto?", "t": "E"}, {"n": 88, "en": "Do you have something in mind", "it": "Hai qualcosa in mente?", "t": "A"}, {"n": 89, "en": "Can i make a suggestion", "it": "Posso fare una proposta?", "t": "A"}, {"n": 90, "en": "Not crazy about it", "it": "non mi fa impazzire", "ex": "Non lo fa impazzire; “Ti piace il sushi? “Mah, non mi fa impazzire. “Com’è il film? - “Carino, ma non mi fa impazzire.”", "t": "O"}]}, {"id": "1.1", "cards": [{"n": 1, "en": "It was worth it", "it": "Ne è valsa la pena... Non ne è valsa la pena...", "t": "O"}, {"n": 2, "en": "By the time we have decided...", "it": "Quando avremo deciso, sarà già finito... Per quando decidiamo, sarà già finito.", "t": "T"}, {"n": 3, "en": "I fell off my bike", "it": "Sono caduto dalle scale con la bici.", "t": "D"}, {"n": 4, "en": "I fell off my bike down the stairs the lead to the river", "it": "Sono caduto dalle scale che portano al fiume, ma per fortuna non ho battuto la testa e non indossavo il casco.", "t": "D"}, {"n": 5, "en": "Is this space free?", "it": "È libero qui?", "t": "A"}, {"n": 6, "en": "Its been a while since.. ive seen a squirell", "it": "È da un po’ che non vedo uno scoiattolo.", "t": "T"}, {"n": 7, "en": "Update me what you do", "it": "Aggiornami cosa fai", "t": "A"}, {"n": 8, "en": "I gave up, you gave up", "it": "Mi sono arreso, Ti sei arreso, si è arresa", "t": "F"}, {"n": 9, "en": "Maybe we also take...", "it": "Magari prendiamo anche delle patatine.", "t": "E"}, {"n": 10, "en": "Can you imagine?!", "it": "Ti immagini?! Ti immagini vivere li?", "t": "F"}, {"n": 11, "en": "Been a busy period", "it": "È stato un periodo intenso, sono stato molto impegnato al lavoro.", "t": "D"}, {"n": 12, "en": "To recieve ..", "it": "Ti mando il link per ricevere l’email.", "t": "D"}, {"n": 13, "en": "Better, Bigger than Expected..", "it": "È più grande di quello che ti aspetti; Milano, Mi è piaciuto più di quanto pensassi.", "ex": "Più facile di quello che mi pensassi;  È più difficile di quanto immaginassi", "t": "O"}, {"n": 14, "en": "What are you doing in italy?!", "it": "Che ci fai qua - mi sono perso. Per il cibo, ovviamente. Mi hanno detto che qui il caffè era migliore.", "t": "A"}, {"n": 15, "en": "ill do my best..", "it": "Faccio del mio meglio", "t": "F"}, {"n": 16, "en": "Wait for me, touch me", "it": "Toccami, aspettami", "ex": "Prendilo, Comprala, Mettila lì, Preparati, Lasciami stare, Portami con te, Aiutami, Seguimi", "t": "A"}, {"n": 17, "en": "No more.. questions, sweets", "it": "niente più domande, niente più dolci", "t": "D"}, {"n": 18, "en": "Im struggling.. i struggle to ..", "it": "Faccio fatica a concentrarmi... Faccio fatica a esprimermi in italiano... Ho fatica a finire questo lavoro", "t": "F"}, {"n": 19, "en": "I felt like you were about to say something.", "it": "Mi sembrava che stessi per dire qualcosa.", "t": "P"}, {"n": 20, "en": "I don't eat meat anymore", "it": "Non mango più carne", "t": "E"}, {"n": 21, "en": "Now or never", "it": "Raga, ora o mai più — dobbiamo organizzare!", "t": "T"}, {"n": 22, "en": "I must admit...", "it": "Devo ammettere che non lo sapevo. Devo ammettere che non è male", "t": "O"}, {"n": 23, "en": "Im on a break", "it": "Sono in pausa", "t": "D"}, {"n": 24, "en": "We got lost in conversation", "it": "Ci siamo persi in chiacchiera", "t": "P"}, {"n": 25, "en": "Changed my mind", "it": "Ho cambiato idea. Cambiamo di programma,", "t": "O"}, {"n": 26, "en": "Is anyone here?", "it": "C'è già qualcuno?", "t": "A"}, {"n": 27, "en": "Thanks for keeping me comapny", "it": "Grazie per avermi fatto compagnia", "ex": "Grazie per avermi accompagnato.", "t": "P"}, {"n": 28, "en": "then, i will tell you everything", "it": "Poi ti racconto tutto quanto", "t": "T"}, {"n": 29, "en": "I want to show you", "it": "Voglio farti vedere dove sono cresciuto", "t": "P"}, {"n": 30, "en": "What is the film about?", "it": "Di cosa tratta il film?", "t": "A"}, {"n": 31, "en": "Nothing to worry about", "it": "Non c'è niente di cui preoccuparsi. Non c'è nulla di cui preoccuparsi", "t": "F"}, {"n": 32, "en": "Did something happen?", "it": "È successo qualcosa?", "t": "A"}, {"n": 33, "en": "Divide in two?", "it": "Dividiamo in due?Facciamo a metà?", "t": "E"}, {"n": 34, "en": "Let's make a trade", "it": "Facciamo uno scambio", "t": "D"}, {"n": 35, "en": "take care", "it": "Stammi bene", "t": "P"}, {"n": 36, "en": "We are in a hurry", "it": "Siamo di corsa", "t": "T"}, {"n": 37, "en": "Your late, as usual", "it": "Sei in ritardo, come al solito.", "t": "T"}, {"n": 38, "en": "My feeling were hurt", "it": "Mi sono offeso", "t": "F"}, {"n": 39, "en": "If you agree..", "it": "Possiamo farlo così, se sei d'accordo", "t": "O"}, {"n": 40, "en": "As long as you are okay", "it": "Finché stai bene tu", "t": "P"}, {"n": 41, "en": "Im thinking things through (reasoning)", "it": "\"Aspetta, sto ragionando.", "t": "O"}, {"n": 42, "en": "Im thinking out loud", "it": "Non è una decisione, sto solo pensando ad alta voce.", "t": "O"}, {"n": 43, "en": "I can't (manage) to.. concentrate", "it": "Non riesco a concentrarmi oggi.", "t": "D"}, {"n": 44, "en": "I could'nt (manage).. to sleep", "it": "Non sono riuscito a dormire ieri notte.", "t": "D"}, {"n": 45, "en": "I can't (manage) to.. wake up early", "it": "Non riesco a svegliarmi presto", "t": "D"}, {"n": 46, "en": "I could'nt (manage).. to concentrate today", "it": "Come andata oggi? Male. Non riuscivo a concentrarmi.", "t": "D"}, {"n": 47, "en": "They have passed, three months since", "it": "Sono passati tre mesi da quando hai smesso di fumare", "t": "T"}, {"n": 48, "en": "After starting, cant stop", "it": "Dopo aver iniziato a parlare di storia, non smette mai di parlare", "ex": "dopo + infinitive → after doing somethin", "t": "D"}, {"n": 49, "en": "I/you need to stop..", "it": "Devo smettere di andare a letto tardi. Devi smettere di stressarti così tanto.", "t": "D"}, {"n": 50, "en": "It stopped raining", "it": "Ha smesso di piovere.", "t": "D"}, {"n": 51, "en": "Dont stop trying", "it": "Non smettere di provarci.", "t": "F"}, {"n": 52, "en": "When do you want me to come back", "it": "Quando vuoi che io torni", "t": "T"}, {"n": 53, "en": "I would like you to speak to me in italian", "it": "Mi dispiace ma, vorrei che tu mi parlassi in l'italiano", "t": "A"}, {"n": 54, "en": "I love you, even if you are complicated", "it": "Ti amo anche se sei complicata.", "t": "P"}, {"n": 55, "en": "Common, it will be good for you", "it": "Dai, ti farà bene... Credo che faccia bene a te", "t": "O"}, {"n": 56, "en": "Even if its expensive, its worth it", "it": "Anche se costa tanto, ne vale la pena.", "t": "O"}, {"n": 57, "en": "Even if i shouldnt..", "it": "Anche se non dovrei", "t": "O"}, {"n": 58, "en": "I cant wait to see you again", "it": "Non vedo l'ora di rivederti", "t": "P"}, {"n": 59, "en": "It ruined everything for me haha", "it": "Vabbè il correttore automatico mi ha rovinato tutto", "t": "F"}, {"n": 60, "en": "I keep.. losing things", "it": "Continuo a perdere le cose", "t": "D"}, {"n": 61, "en": "Fancy a quick fling", "it": "Ti va una liaison volante con un fresh coffeess?", "t": "E"}, {"n": 62, "en": "You knew already that you wanted to do it", "it": "Sapevi già che volevi farlo?", "t": "O"}, {"n": 63, "en": "In the end.. i decided to eat sushi", "it": "Alla fine, ho deciso di mangiare del sushi", "t": "E"}, {"n": 64, "en": "In the end... everything worked out", "it": "Ero stato un po’ preoccupato, ma alla fine, tutto è andato bene.", "t": "F"}, {"n": 65, "en": "There's one. There was one.", "it": "Ce n'è uno. Ce n'è stato uno.", "t": "D"}, {"n": 66, "en": "There are some. There were some", "it": "Ce ne sono alcuni. Ce ne sono stati alcuni.", "t": "D"}, {"n": 67, "en": "The lights are too bright", "it": "C’è troppa luce", "t": "D"}, {"n": 68, "en": "I hope you had (passed) a nice day", "it": "Spero che tu abbia passato una bella giornata.", "t": "P"}, {"n": 69, "en": "I was hoping you had a nice day", "it": "Speravo che tu avessi passato una bella giornata.", "t": "P"}, {"n": 70, "en": "I hope you relax tonight", "it": "Spero che tu ti rilassi stasera. Spero che ti sia rilassata stasera.", "t": "P"}, {"n": 71, "en": "I found this place randomly", "it": "ho trovato questo posto a caso", "t": "D"}, {"n": 72, "en": "Immagino ed è anche il motivo per cui sia andato lì?", "it": "Una fetta sottile di pane", "chk": "English and Italian don't match in the sheet.", "t": "E"}, {"n": 73, "en": "I woke up alot last night", "it": "si è svegliato un sacco di volte la scorsa notte", "t": "D"}, {"n": 74, "en": "I can't go even one more day", "it": "Non posso andare nemmeno un giorno di più", "t": "F"}, {"n": 75, "en": "Can you give me a hand", "it": "Mi puoi dare una mano, dammi una mano", "t": "A"}, {"n": 76, "en": "It will be good for you to do yoga", "it": "ti fa bene fare yoga", "t": "O"}, {"n": 77, "en": "I called to say goodnight", "it": "Ti stavo chiamando per dirti buonanotte", "t": "P"}, {"n": 78, "en": "Permisson", "it": "Mi hanno permesso di entrare; Mi è stato permesso di giocare", "t": "D"}, {"n": 79, "en": "How do we want to proceed", "it": "Come vogliamo procedere", "t": "T"}, {"n": 80, "en": "Impressed, impressive", "it": "Sono impressionato. Sono rimasto impressionato. Impressionante", "t": "F"}, {"n": 81, "en": "Probably it will be rainy almost all the time you are here", "it": "Probabilmente pioverà quasi tutto il tempo che sei qui. Farà caldo per la maggior parte della settimana", "t": "D"}, {"n": 82, "en": "Espically, Basically, Mainly", "it": "Sono stanco, sopratutto dopo il weekend scorso. Fondamentalmente non cambia niente. Principalmente per questo motivo ho deciso di andare", "t": "O"}, {"n": 83, "en": "Its so hot im melting", "it": "Fa così caldo… mi sto sciogliendo!", "t": "D"}, {"n": 84, "en": "I wanted to make a surprise", "it": "Ma volevo farti una sorpresa", "t": "P"}, {"n": 85, "en": "We leave in a week", "it": "Partiamo fra una settimana.", "t": "T"}, {"n": 86, "en": "We start in 10", "it": "Cominciamo tra 10 minuti.", "t": "T"}, {"n": 87, "en": "I didnt understand anything but very poetic", "it": "Non ho capito un cazzo ma molto poetico", "t": "F"}, {"n": 88, "en": "I have to tell you, its important you know", "it": "Devo dirti una cosa, perché e importante che tu la sappia", "t": "P"}, {"n": 89, "en": "What everyone wants..", "it": "Ma quello che vogliono tutti", "t": "O"}, {"n": 90, "en": "It will take me 20 min tops", "it": "Al massimo ci metto venti minuti", "t": "T"}, {"n": 91, "en": "I can get used to this", "it": "mi posso abituare", "t": "F"}, {"n": 92, "en": "Have fun / Enjoy/savour", "it": "Divertitevi!, Divertiti alla festa, Goditi il viaggio, Godetevi le vacanze", "t": "P"}, {"n": 93, "en": "I had so much fun", "it": "Mi sono divertito tantissimo", "t": "F"}]}, {"id": "1.2", "cards": [{"n": 1, "en": "I'll take one (as long as) its cold", "it": "Ne prendo uno basta che sia freddo", "t": "E"}, {"n": 2, "en": "Did you hear a sound?", "it": "hai sentito un rumore?", "t": "A"}, {"n": 3, "en": "It would be nice to go on a trip together", "it": "Pero sarebbe bello fare un viaggio insieme", "t": "T"}, {"n": 4, "en": "You wont go for a swim. are you mad?", "it": "Non te lo fai il bagno?Ma sei matta?", "t": "F"}, {"n": 5, "en": "Lets go for a walk", "it": "Andiamo a fare due passi?", "t": "T"}, {"n": 6, "en": "We'll continue this conversation tonight", "it": "Proseguiamo il discorso stanotte. Continuiamo a parlarne stasera", "t": "T"}, {"n": 7, "en": "Did you hurt your self", "it": "Mi sono fatto male. Ti sei fatto male?", "t": "D"}, {"n": 8, "en": "My back hurts (right now, ongoing)", "it": "Mi fa male la schiena", "t": "D"}, {"n": 9, "en": "I hurt my back (event that happened)", "it": "Mi sono fatto male alla schiena", "t": "D"}, {"n": 10, "en": "I realise that i made a mistake", "it": "Mi rendo conto di aver sbagliato, Mi rendo conto che è difficile", "t": "O"}, {"n": 11, "en": "I realised how late it was", "it": "Non mi sono reso conto di quanto fosse tardi.", "t": "T"}, {"n": 12, "en": "It didnt happen like that", "it": "Non è successo così", "t": "O"}, {"n": 13, "en": "You dont know how imporatant this is to me", "it": "Non sai quanto significa per me", "t": "P"}, {"n": 14, "en": "what did i miss", "it": "cosa mi sono perso", "t": "A"}, {"n": 15, "en": "We shouldnt, yet we do", "it": "non dovremmo, eppure lo facciamo. Non dovrei mangiarlo, eppure lo mangio sempre", "t": "O"}, {"n": 16, "en": "At this point, more often than ever before", "it": "Ormai più spesso che mai ahahha", "t": "T"}, {"n": 17, "en": "Now and then, i wake up early", "it": "Ogni tanto sveglio presto", "t": "T"}, {"n": 18, "en": "I just returned from Rick's", "it": "Io appena tornata da Rick", "t": "D"}, {"n": 19, "en": "Surprise me", "it": "Sorprendimi", "t": "P"}, {"n": 20, "en": "Toss me the keys", "it": "Mi lanci le chiavi?", "t": "A"}, {"n": 21, "en": "More often than not.. i cook at home", "it": "Il più delle volte cucino a casa", "t": "E"}, {"n": 22, "en": "Bro, its like the hardest place to reach", "it": "Fratello, è tipo il posto più difficile da raggiungere", "t": "O"}, {"n": 23, "en": "The dish most difficult to prepare", "it": "È il piatto più difficile da preparare", "t": "E"}, {"n": 24, "en": "A sensational victory", "it": "Una vittoria clamorosa. Un piatto clamoroso", "t": "F"}, {"n": 25, "en": "In the meantime ...", "it": "Vai tu, nel frattempo finisco questo. Arriva tra un'ora, intanto mangiamo qualcosa", "t": "T"}, {"n": 26, "en": "You know what it is a forreign accent? its a sign of courage", "it": "Sai cos'è un accento straniero? È un segno di coraggio.", "t": "O"}, {"n": 27, "en": "Until recently i didn't know", "it": "Fino a poco tempo fa non lo sapevo", "t": "O"}, {"n": 28, "en": "We are in 5, me included", "it": "Siamo in cinque, me compresa", "t": "D"}, {"n": 29, "en": "It costs due cento, all inclusive", "it": "Costa duecento euro, tutto compreso", "t": "E"}, {"n": 30, "en": "in summary (bottom line), it's complicated", "it": "Insomma, è complicato", "t": "O"}, {"n": 31, "en": "It fairly common", "it": "Abbastanza comune", "t": "O"}, {"n": 32, "en": "I see it completely different", "it": "Vedo la cosa in modo diverso", "t": "O"}, {"n": 33, "en": "We need to change appraoch", "it": "Dobbiamo cambiare approccio", "t": "O"}, {"n": 34, "en": "We will see what to do based on the weather", "it": "Vediamo cosa fare in base al tempo.", "t": "T"}, {"n": 35, "en": "I thought you needed to wake up", "it": "Pensavo che avessi bisogno di svegliarti", "t": "D"}, {"n": 36, "en": "I had to go back to Australia because my brother got sick", "it": "Sono dovuto tornare in Australia perché mio fratello si è ammalato", "t": "D"}, {"n": 37, "en": "He loves the biscuits, he like the bisucits", "it": "Lui adora i biscotti. Gli piacciono i biscotti", "t": "E"}, {"n": 38, "en": "It's definitely the best", "it": "È decisamente il migliore", "t": "O"}, {"n": 39, "en": "last night was definitely better", "it": "Ma sta notte era decisamente meglio", "t": "F"}, {"n": 40, "en": "Can i use the charger? im putting it on charge", "it": "Posso usare il caricatore?. Lo metto in carica", "t": "A"}, {"n": 41, "en": "If it's not soup, it's wet bread", "it": "Se non è zuppa, è pan bagnato. ci metti lo stesso", "t": "O"}, {"n": 42, "en": "You can trust me", "it": "Puoi fidarti di me", "t": "P"}, {"n": 43, "en": "Appreciate the sunshine", "it": "Apprezza il sole. Goditi il momento", "t": "F"}, {"n": 44, "en": "Do you want? i want", "it": "Tu lo vuoi , io lo voglio", "t": "A"}, {"n": 45, "en": "Do you like it? me tooo", "it": "Ti piace? Anche a me.", "t": "A"}, {"n": 46, "en": "I need to act more like a fun person", "it": "Dovrei comportarmi più come persona divertente", "t": "F"}, {"n": 47, "en": "I cant believe i lost", "it": "Non riesco a credere di aver perso", "t": "F"}, {"n": 48, "en": "It seems to me", "it": "Mi pare. Mi sembra", "t": "O"}, {"n": 49, "en": "I had it, but i got rid of it", "it": "Ce l’avevo, ma l’ho tolto via.", "t": "D"}, {"n": 50, "en": "Get rid of your stuff", "it": "Toglie la tua roba", "t": "D"}, {"n": 51, "en": "Get it out of the way", "it": "Toglilo di mezzo.", "t": "D"}, {"n": 52, "en": "Im not sure. but from the top of my head", "it": "A memoria, direi che è a 10 km.", "t": "O"}, {"n": 53, "en": "Wait a seek, that i check", "it": "Aspetta un attimo - che controllo", "t": "T"}, {"n": 54, "en": "Can you recommend something typical", "it": "Mi consigli qualcosa di tipico. Qualcosa di buono", "t": "E"}, {"n": 55, "en": "To drink, some water", "it": "da bere, dell'acqua naturale", "t": "E"}, {"n": 56, "en": "And its also probably the reason you went there?", "it": "Ed è anche il motivo (immagino) per cui sia andato lì?", "t": "A"}, {"n": 57, "en": "I dont even have a bike", "it": "Non ho nemmeno la bici", "t": "D"}, {"n": 58, "en": "I didnt even think about it", "it": "Non ci ho neanche pensato", "t": "O"}, {"n": 59, "en": "But this maybe you knew already", "it": "Ma questo forse lo sapevi già", "t": "O"}, {"n": 60, "en": "I wanted to propose it for this afternoon.", "it": "Volevo proporlo per questo pomeriggio", "t": "T"}, {"n": 61, "en": "I thought about proposing a date night", "it": "Pensavo di proporti una serata romantica", "t": "P"}, {"n": 62, "en": "You didnt even tell me you werer going out", "it": "Non mi hai neanche detto che stavi uscendo", "t": "P"}, {"n": 63, "en": "You could have at least told me", "it": "Potevi almeno dirmelo che uscivi", "t": "P"}, {"n": 64, "en": "Everything is done as a pair, whatever happens, each person put in their part", "it": "Si fa tutto in due, qualsiasi cosa accada, ognuno ha messo il suo", "t": "P"}, {"n": 65, "en": "It bloats me", "it": "mi fa gonfiare", "t": "E"}, {"n": 66, "en": "You make me happy and this is everything", "it": "mi rendi felice e questo è tutto. Mi fai sentire", "t": "P"}, {"n": 67, "en": "You are pretending to ignore me", "it": "Fai finta di ignorarmi", "t": "P"}, {"n": 68, "en": "You pretended not to see me", "it": "Hai fatto finta di non vedermi.", "t": "P"}, {"n": 69, "en": "Then it got pitch black", "it": "E poi si è fatto buio pesto", "t": "D"}, {"n": 70, "en": "I want to feel close to you", "it": "Io voglio affezionarmi a te", "t": "P"}, {"n": 71, "en": "Im happy, i hope all goes good", "it": "Sono contento, speriamo che vada per il meglio", "t": "F"}, {"n": 72, "en": "She seemed happy at the start, but then it changed", "it": "Sembrava entusiasta all'inizio, poi è cambiato", "t": "P"}, {"n": 73, "en": "I grew attached to him over time", "it": "Mi sono affezionato a lui col tempo", "t": "P"}, {"n": 74, "en": "You told me you made a mistake", "it": "Mi hai detto di aver sbagliato. Hai detto che avevi sbagliato.", "t": "P"}, {"n": 75, "en": "They told us to come early", "it": "Ci hanno detto di venire presto", "t": "T"}, {"n": 76, "en": "I thought i was late. I thought i made a mistake", "it": "Pensavo di essere in ritardo. Penso di aver sbagliato", "t": "O"}, {"n": 77, "en": "Before i forget i want to ask you something", "it": "Prima che mi dimentichi, volevo chiederti una cosa.", "t": "A"}, {"n": 78, "en": "Dont forget the keys", "it": "Non dimenticarti le chiavi. Non dimenticarti di scrivermi.", "t": "D"}, {"n": 79, "en": "What a pleasure to see you guys", "it": "Che piacere vedervi", "t": "P"}, {"n": 80, "en": "I dont like the film, but ill watch it anyway", "it": "I dont like the film, but ill watch it anyway", "chk": "The Italian cell holds the English sentence.", "t": "O"}, {"n": 81, "en": "Ill take the fish, actually (instead) ill take the meat", "it": "Non mi piace quel film, ma lo guarderò comunque", "chk": "The Italian is the film sentence from the card above.", "t": "E"}, {"n": 82, "en": "I hope you sleep well. I hope you are resting well", "it": "Spero che tu dorma bene. Spero tu stia riposando bene", "t": "P"}, {"n": 83, "en": "Its fabulous", "it": "è favoloso", "t": "F"}, {"n": 84, "en": "Can you do me a favour", "it": "Mi faresti un favore", "t": "A"}, {"n": 85, "en": "Can i sit outside", "it": "Posso sedermi fuori?", "t": "E"}, {"n": 86, "en": "I've acquired a taste", "it": "Non mi piaceva il caffè all'inizio, ma ora mi ci sono preso gusto.", "t": "E"}, {"n": 87, "en": "I thought you were feeling bad", "it": "pensavo che tu sentissi male; io vado una riunione", "t": "P"}]}];
+const TAGS = {
+  A: "Asking", F: "Feelings", O: "Opinions", T: "Plans & time",
+  E: "Food & out", D: "Day to day", P: "People"
+};
+const ORDER = ["A", "F", "O", "T", "E", "D", "P"];
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("fdf:" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem("fdf:" + k, JSON.stringify(v)); } catch {} }
+};
+
+let deckId = store.get("deck", DECKS[0] && DECKS[0].id);
+if (!DECKS.some(d => d.id === deckId)) deckId = DECKS[0].id;
+let filter = null;
+const flipped = {};             // deckId -> Set of card numbers
+const openSecs = store.get("open", {}); // deckId -> [section index]
+
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const deck = () => DECKS.find(d => d.id === deckId);
+const flipSet = () => (flipped[deckId] ||= new Set());
+
+function renderDecks() {
+  $("#decks").innerHTML = DECKS.map(d => `
+    <button class="deck-btn" role="tab" type="button" data-deck="${d.id}" aria-selected="${d.id === deckId}">
+      ${d.id}<small>${d.cards.length}</small>
+    </button>`).join("");
+}
+
+function renderSpread() {
+  const cards = deck().cards;
+  const counts = Object.fromEntries(ORDER.map(t => [t, 0]));
+  cards.forEach(c => counts[c.t]++);
+  const used = ORDER.filter(t => counts[t]);
+  $("#spread").innerHTML = `
+    <div class="spread-head"><span class="label">Spread</span><span>${cards.length} cards · ${Math.ceil(cards.length / 10)} sections</span></div>
+    <div class="bar">${used.map(t => `<span data-t="${t}" style="--c:var(--t${t});flex-grow:${counts[t]}"></span>`).join("")}</div>
+    <div class="legend">${used.map(t => `
+      <button class="chip" type="button" data-filter="${t}" style="--c:var(--t${t})" aria-pressed="false">
+        <i></i>${TAGS[t]}<b>${counts[t]}</b>
+      </button>`).join("")}</div>`;
+  applyFilter();
+}
+
+function front(c) {
+  return `<div class="card-row"><span class="num">${c.n}</span><div class="body">
+    <p class="en">${esc(c.en)}</p>
+    <span class="tag" title="${TAGS[c.t]}"><i></i><span class="tl">${TAGS[c.t]}</span></span></div></div>`;
+}
+function back(c) {
+  const it = c.it ? `<p class="it" lang="it">${esc(c.it)}</p>` : `<p class="it missing">No Italian in the sheet yet</p>`;
+  const ex = c.ex ? `<div class="extra"><span class="label">E.g.</span><p lang="it">${esc(c.ex)}</p></div>` : "";
+  const no = c.no ? `<div class="extra"><span class="label">Note</span><p lang="it">${esc(c.no)}</p></div>` : "";
+  const chk = c.chk ? `<p class="chk">Check in sheet: ${esc(c.chk)}</p>` : "";
+  return `<div class="card-row"><span class="num">${c.n}</span><div class="body">
+    ${it}<p class="en-sub">${esc(c.en)}</p>${ex}${no}${chk}</div></div>`;
+}
+
+function renderSections() {
+  const cards = deck().cards, fs = flipSet();
+  const open = new Set(openSecs[deckId] || [0]);
+  let html = "";
+  for (let i = 0; i < cards.length; i += 10) {
+    const chunk = cards.slice(i, i + 10), s = i / 10;
+    const a = chunk[0].n, b = chunk[chunk.length - 1].n;
+    html += `<section class="sec" data-sec="${s}" data-open="${open.has(s)}">
+      <button class="sec-head" type="button" aria-expanded="${open.has(s)}">
+        <span class="sec-range">${a}<span>–</span>${b}</span>
+        <span class="dots">${chunk.map(c => `<i data-t="${c.t}" style="--c:var(--t${c.t})"></i>`).join("")}</span>
+        <span class="sec-meta"><span class="match"></span>
+          <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <div class="sec-body"><div class="sec-inner"><div class="cards">
+        ${chunk.map(c => `<article class="card${fs.has(c.n) ? " flipped" : ""}" tabindex="0" data-n="${c.n}" data-t="${c.t}" style="--c:var(--t${c.t})"
+           aria-label="Card ${c.n}. Double-tap or press Enter to flip.">${fs.has(c.n) ? back(c) : front(c)}</article>`).join("")}
+      </div></div></div>
+    </section>`;
+  }
+  $("#sections").innerHTML = html || `<p class="empty">No cards in this deck yet.</p>`;
+  syncFlipAll();
+  applyFilter();
+}
+
+function render() { renderDecks(); renderSpread(); renderSections(); }
+
+/* ---------- filter (highlights, never reorders) ---------- */
+function applyFilter() {
+  document.body.classList.toggle("filtering", !!filter);
+  document.querySelectorAll("[data-t]").forEach(el => el.classList.toggle("on", el.dataset.t === filter));
+  document.querySelectorAll(".chip").forEach(el => el.setAttribute("aria-pressed", el.dataset.filter === filter));
+  document.querySelectorAll(".sec").forEach(sec => {
+    const n = filter ? sec.querySelectorAll(`.card[data-t="${filter}"]`).length : 0;
+    sec.querySelector(".match").textContent = filter ? (n ? `${n}` : "–") : "";
+  });
+}
+
+/* ---------- sections ---------- */
+function saveOpen() {
+  openSecs[deckId] = [...document.querySelectorAll('.sec[data-open="true"]')].map(s => +s.dataset.sec);
+  store.set("open", openSecs);
+}
+function setOpen(sec, v) {
+  sec.dataset.open = v;
+  sec.querySelector(".sec-head").setAttribute("aria-expanded", v);
+}
+
+/* ---------- flip ---------- */
+function cardData(n) { return deck().cards.find(c => c.n === n); }
+function flip(el, toBack) {
+  const n = +el.dataset.n, c = cardData(n), fs = flipSet();
+  toBack = toBack ?? !fs.has(n);
+  if (toBack === fs.has(n)) return;
+  toBack ? fs.add(n) : fs.delete(n);
+  const swap = () => { el.innerHTML = toBack ? back(c) : front(c); el.classList.toggle("flipped", toBack); };
+  if (reduced || !el.animate) { swap(); syncFlipAll(); return; }
+  el.animate([{ transform: "perspective(900px) rotateX(0deg)" }, { transform: "perspective(900px) rotateX(90deg)" }],
+    { duration: 140, easing: "cubic-bezier(.5,0,1,.6)" }).onfinish = () => {
+      swap();
+      el.animate([{ transform: "perspective(900px) rotateX(-90deg)" }, { transform: "perspective(900px) rotateX(0deg)" }],
+        { duration: 220, easing: "cubic-bezier(.2,.8,.3,1)" });
+    };
+  syncFlipAll();
+}
+function syncFlipAll() {
+  const all = deck().cards.length > 0 && flipSet().size === deck().cards.length;
+  $("#flipAll").setAttribute("aria-pressed", all);
+  $("#flipAll").textContent = all ? "Show all English" : "Show all Italian";
+}
+
+/* ---------- zoom ---------- */
+function setZoom(z) {
+  document.body.classList.toggle("compact", z === "compact");
+  document.querySelectorAll("[data-zoom]").forEach(b => b.setAttribute("aria-pressed", b.dataset.zoom === z));
+  store.set("zoom", z);
+}
+document.querySelector(".zoom").addEventListener("click", e => {
+  const b = e.target.closest("[data-zoom]"); if (b) setZoom(b.dataset.zoom);
+});
+setZoom(store.get("zoom", "comfy"));
+
+/* ---------- events ---------- */
+$("#decks").addEventListener("click", e => {
+  const b = e.target.closest(".deck-btn"); if (!b || b.dataset.deck === deckId) return;
+  deckId = b.dataset.deck; store.set("deck", deckId); filter = null;
+  render(); window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+});
+$("#spread").addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  filter = filter === c.dataset.filter ? null : c.dataset.filter;
+  applyFilter();
+});
+$("#sections").addEventListener("click", e => {
+  const h = e.target.closest(".sec-head"); if (!h) return;
+  const sec = h.parentElement; setOpen(sec, sec.dataset.open !== "true"); saveOpen();
+});
+$("#openAll").addEventListener("click", () => { document.querySelectorAll(".sec").forEach(s => setOpen(s, true)); saveOpen(); });
+$("#closeAll").addEventListener("click", () => { document.querySelectorAll(".sec").forEach(s => setOpen(s, false)); saveOpen(); });
+$("#flipAll").addEventListener("click", () => {
+  const toBack = flipSet().size !== deck().cards.length;
+  document.querySelectorAll(".card").forEach(el => flip(el, toBack));
+  if (toBack) deck().cards.forEach(c => flipSet().add(c.n)); else flipSet().clear();
+  syncFlipAll();
+});
+
+// Double-tap detection that works for touch and mouse, and ignores scroll drags.
+let lastTap = { el: null, t: 0 }, down = null;
+const sections = $("#sections");
+sections.addEventListener("pointerdown", e => { down = { x: e.clientX, y: e.clientY }; });
+sections.addEventListener("pointerup", e => {
+  const el = e.target.closest(".card"); if (!el || !down) return;
+  if (Math.hypot(e.clientX - down.x, e.clientY - down.y) > 10) { lastTap = { el: null, t: 0 }; return; }
+  const now = performance.now();
+  if (lastTap.el === el && now - lastTap.t < 330) { flip(el); lastTap = { el: null, t: 0 }; }
+  else lastTap = { el, t: now };
+});
+sections.addEventListener("dblclick", e => { if (e.target.closest(".card")) e.preventDefault(); });
+sections.addEventListener("keydown", e => {
+  const el = e.target.closest(".card");
+  if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); flip(el); }
+});
+
+render();
+</script>
