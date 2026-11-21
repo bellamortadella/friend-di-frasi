@@ -78,8 +78,17 @@ def main(paths):
     # Standalone copy with a full document head, for hosting outside claude.ai (e.g. GitHub Pages).
     head = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            '<meta name="description" content="My Italian Anki decks at a glance.">\n'
+            '<link rel="manifest" href="manifest.webmanifest">\n'
+            '<meta name="theme-color" content="#eef0f3" media="(prefers-color-scheme: light)">\n'
+            '<meta name="theme-color" content="#0f131a" media="(prefers-color-scheme: dark)">\n'
+            '<link rel="icon" type="image/png" href="icons/favicon-64.png">\n'
+            '<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">\n'
+            '<meta name="mobile-web-app-capable" content="yes">\n'
             '<meta name="apple-mobile-web-app-capable" content="yes">\n'
             '<meta name="apple-mobile-web-app-title" content="Frasi">\n'
+            '<script>if ("serviceWorker" in navigator) addEventListener("load", () => '
+            'navigator.serviceWorker.register("sw.js").catch(() => {}));</script>\n'
             '<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}'
             'body{margin:0}[hidden]{display:none!important}</style>\n</head>\n<body>\n')
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(head + out + "\n</body>\n</html>\n")
