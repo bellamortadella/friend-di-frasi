@@ -1,7 +1,8 @@
-"""Build the Friend di Frasi companion page from the Anki sheet CSV.
+"""Build the Friend di Frasi companion page from the Anki sheet CSV exports.
 
-Usage: python3 -I data/build.py "<path to exported CSV>"
-Writes data/cards.json and friend-di-frase.html (from template.html).
+Usage: python3 -I data/build.py [CSV ...]   (default: every CSV in data/sheets/)
+Each CSV holds three decks side by side; deck names come from the "English x.y" headers.
+Writes data/cards.json, friend-di-frase.html (claude.ai) and index.html (GitHub Pages).
 Tags are one letter per card, in deck order. Add letters when you add cards.
 """
 import csv, json, sys, os
@@ -17,6 +18,12 @@ TAGS = {
            "FTAPOOOPFD" "EOEFDDDPPP" "DEDFAOPDTF" "DODPTTFPOT" "FPF",
     "1.2": "EATFTTDDDO" "TOPAOTTDPA" "EOEFTOODEO" "OOOTDDEOFA" "OPFAAFFODD"
            "DOTEEADOOT" "PPPPEPPPDP" "FPPPTOADPO" "EPFAEEP",
+    "1.3": "DFOAFDOTAO" "DPDDTODDFD" "PTOFODOOOF" "FDPPFPPTDD" "DOTPPFFDAP"
+           "EPPFDTAODD" "PTOADDAOPP" "DPDDDFEEOA" "AAFFTTTTFF",
+    "1.4": "FOODFADOPO" "TDDFEPPPFP" "OAAATTOETP" "EPPAAEEEAA" "DTOEAFAPTT"
+           "OAPTAADDPD" "FEDFFFFDDD" "DPDDOOODDT" "FDDDFDDTDD",
+    "1.5": "FTODDPODFP" "DTOETOFAOD" "FAFAODEDPP" "OTFTOFPOOE" "DOPDTEFFPD"
+           "FAODEOOPAF" "TT",
 }
 
 # Corrections layered over the sheet (data/fixes.json). Once a fix is also made in the
@@ -25,10 +32,19 @@ FIXES = json.load(open(os.path.join(HERE, "fixes.json"), encoding="utf-8"))
 FIXES.pop("_about", None)
 
 
-def main(path):
+def deck_columns(path):
+    """Yield (deck name, column offset, rows) for each 'English x.y' block in a CSV."""
     rows = list(csv.reader(open(path, encoding="utf-8")))
+    for off, h in enumerate(rows[0]):
+        if h.strip().startswith("English "):
+            yield h.strip().split()[-1], off, rows
+
+
+def main(paths):
+    blocks = sorted((b for p in paths for b in deck_columns(p)), key=lambda b: [int(x) for x in b[0].split(".")])
     decks, used, log = [], set(), []
-    for name, off in [("1.0", 0), ("1.1", 6), ("1.2", 12)]:
+    for name, off, rows in blocks:
+        ex_label = "Alt" if rows[0][off + 3].strip().startswith("Bonus") and name >= "1.3" else "E.g."
         cards = []
         for r in rows[1:]:
             r = r + [""] * 20
@@ -52,7 +68,7 @@ def main(path):
         assert len(tags) == len(cards), f"{name}: {len(tags)} tags for {len(cards)} cards"
         for c, t in zip(cards, tags):
             c["t"] = t
-        decks.append({"id": name, "cards": cards})
+        decks.append({"id": name, "exLabel": ex_label, "cards": cards})
 
     json.dump(decks, open(os.path.join(HERE, "cards.json"), "w"), ensure_ascii=False, indent=1)
     tpl = open(os.path.join(ROOT, "template.html"), encoding="utf-8").read()
@@ -77,7 +93,7 @@ def write_fix_list(log):
     """sheet-fixes.md: what to change in the Google Sheet / Anki so they match the app."""
     out = ["# Sheet fixes", "",
            "Corrections the app applies on top of the sheet. Copy them into the sheet (and Anki) to keep everything in sync.", ""]
-    for deck in ("1.0", "1.1", "1.2"):
+    for deck in sorted({x[0] for x in log}, key=lambda d: [int(v) for v in d.split(".")]):
         rows = [x for x in log if x[0] == deck]
         if not rows:
             continue
@@ -92,4 +108,6 @@ def write_fix_list(log):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    args = sys.argv[1:] or sorted(
+        os.path.join(HERE, "sheets", f) for f in os.listdir(os.path.join(HERE, "sheets")) if f.endswith(".csv"))
+    main(args)

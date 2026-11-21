@@ -86,11 +86,17 @@ Corrections the app applies on top of the sheet. Copy them into the sheet (and A
 **#55 · Common, it will be good for you** — faccia bene a te → ti faccia bene
 - Italian: ~~Dai, ti farà bene... Credo che faccia bene a te~~ → Dai, ti farà bene... Credo che ti faccia bene.
 
+**#61 · Fancy a quick fling** — The Italian was half English ('liaison… fresh coffeess')
+- Italian: ~~Ti va una liaison volante con un fresh coffeess?~~ → Ti va una scappatella veloce con un caffè fresco?
+
 **#72 · A thin slice of bread** — The English cell held an Italian sentence (it's already card 1.2 #56). English now matches 'Una fetta sottile di pane'
 - English: ~~Immagino ed è anche il motivo per cui sia andato lì?~~ → A thin slice of bread
 
 **#73 · I woke up alot last night** — 'Si è svegliato' means 'he woke up'
 - Italian: ~~si è svegliato un sacco di volte la scorsa notte~~ → Mi sono svegliato un sacco di volte stanotte.
+
+**#76 · It will be good for you to do yoga** — English is future ('will be'): ti fa → ti farà
+- Italian: ~~ti fa bene fare yoga~~ → Ti farà bene fare yoga.
 
 **#77 · I called to say goodnight** — 'Ti stavo chiamando' means 'I was calling you'
 - Italian: ~~Ti stavo chiamando per dirti buonanotte~~ → Ti ho chiamato per darti la buonanotte.
@@ -127,6 +133,9 @@ Corrections the app applies on top of the sheet. Copy them into the sheet (and A
 **#39 · last night was definitely better** — sta notte era → ieri sera è andata
 - Italian: ~~Ma sta notte era decisamente meglio~~ → Ma ieri sera è andata decisamente meglio.
 
+**#41 · If it's not soup, it's wet bread** — Removed the unrelated fragment 'ci metti lo stesso'
+- Italian: ~~Se non è zuppa, è pan bagnato. ci metti lo stesso~~ → Se non è zuppa, è pan bagnato.
+
 **#46 · I need to act more like a fun person** — come persona → da persona
 - Italian: ~~Dovrei comportarmi più come persona divertente~~ → Dovrei comportarmi più da persona divertente.
 
@@ -156,3 +165,100 @@ Corrections the app applies on top of the sheet. Copy them into the sheet (and A
 
 **#87 · I thought you were feeling bad** — tu sentissi → ti sentissi; removed unrelated 'io vado una riunione'
 - Italian: ~~pensavo che tu sentissi male; io vado una riunione~~ → Pensavo che ti sentissi male.
+
+## Deck 1.3
+
+**#10 · I will think about it** — 'Ci penso io' means 'I'll take care of it', not 'I'll think about it'
+- Italian: ~~Ci penso io~~ → Ci penserò.
+
+**#13 · I probably left it at home** — Word order; the alt 'Sa di sì che…' isn't Italian
+- Italian: ~~L’ho probabilmente lasciato a casa~~ → Probabilmente l'ho lasciato a casa.
+- E.g.: ~~Sa di sì che l’ho lasciato a casa~~ → Mi sa che l'ho lasciato a casa
+
+**#19 · There’s no feeling like being here** — 'Non esiste una sensazione di stare qui' means 'there's no feeling of being here'
+- Italian: ~~Non esiste una sensazione di stare qui~~ → Non c'è niente come stare qui.
+- E.g.: ~~Non c’è niente come stare qui~~ → Non c'è niente di meglio che stare qui
+
+**#22 · How long before we go? / When do we pass through?** — Added the question mark
+- Italian: ~~Fra quanto passiamo~~ → Fra quanto passiamo?
+
+**#27 · It’s already cleaner than this, what more do you want?** — 'Già pulito più di questo, cosa vuoi' was missing the verb and 'di più'
+- Italian: ~~Già pulito più di questo, cosa vuoi~~ → È già più pulito di così, cosa vuoi di più?
+
+**#48 · My ears are still developing.** — Needs 'si': the ears are developing themselves
+- Italian: ~~Mi stanno ancora sviluppando le orecchie.~~ → Mi si stanno ancora sviluppando le orecchie.
+
+**#77 · How many can I eat?** — Added the question mark
+- Italian: ~~Quanti ne posso mangiare~~ → Quanti ne posso mangiare?
+
+**#78 · I've got the rest / I'll cover the rest** — Alt 'Ci penso io il resto' isn't grammatical: al resto ci penso io
+- E.g.: ~~Ci penso io il resto~~ → Al resto ci penso io
+
+## Deck 1.4
+
+**#15 · Pistachio festival** — di → del (named after the ingredient)
+- Italian: ~~Sagra di pistacchio~~ → Sagra del pistacchio
+
+**#28 · Can we have some water?** — Added the question mark
+- Italian: ~~Possiamo avere dell'acqua~~ → Possiamo avere dell'acqua?
+
+**#31 · Can I sit outside?** — Added the question mark
+- Italian: ~~Posso sedermi fuori~~ → Posso sedermi fuori?
+
+**#32 · I wish you were here** — 'Mi sarebbe piaciuto…' means 'I would have liked…'; 'I wish you were here' is 'Vorrei che tu fossi qui'
+- Italian: ~~Mi sarebbe piaciuto che tu fossi qui~~ → Vorrei tanto che tu fossi qui.
+- E.g.: ~~Vorrei tanto che tu fossi qui~~ → Mi sarebbe piaciuto che tu fossi qui (I'd have liked you to be here)
+
+**#33 · Would you have liked to be here?** — Added the question mark
+- Italian: ~~Ti sarebbe piaciuto essere qui~~ → Ti sarebbe piaciuto essere qui?
+
+**#34 · Would you have liked to listen?** — Added the question mark
+- Italian: ~~Ti sarebbe piaciuto ascoltare~~ → Ti sarebbe piaciuto ascoltare?
+
+**#35 · Would you like to listen?** — Added the question mark
+- Italian: ~~Ti piacerebbe ascoltare~~ → Ti piacerebbe ascoltare?
+
+**#48 · Just a little something (small gift/thought)** — 'Piccolo pensierino' says 'small' twice; pensierino is already small
+- Italian: ~~Ti ho preso un piccolo pensierino.~~ → Ti ho preso un pensierino.
+
+**#50 · When does it leave?** — 'Da quando parte' means 'since when does it leave'
+- Italian: ~~Da quando parte~~ → A che ora parte?
+- E.g.: ~~A che ora parte?~~ → Quando parte?
+
+**#52 · Who's missing?** — Added the question mark
+- Italian: ~~Chi manca~~ → Chi manca?
+
+**#67 · He/she won't let me do it** — 'Do it' needs the 'lo': non me lo fa fare
+- Italian: ~~Non mi fa fare~~ → Non me lo fa fare.
+
+**#81 · I'm afraid it might break** — English is present ('I'm afraid'): si rompesse → si rompa
+- Italian: ~~Ho paura che si rompesse / si potesse rompere~~ → Ho paura che si rompa.
+- E.g.: ~~Ho paura che si rompa~~ → Avevo paura che si rompesse (I was afraid it would break)
+
+**#83 · I fed it / them** — Missing 'it/them': ho dato → gli ho dato
+- Italian: ~~Ho dato da mangiare~~ → Gli ho dato da mangiare.
+
+## Deck 1.5
+
+**#3 · it happens to the best** — 'È capita' isn't Italian: capita (or è capitato)
+- Italian: ~~È capita ai migliori~~ → Capita anche ai migliori.
+
+**#18 · How did you find out?** — Missing 'it': sapere → saperlo
+- Italian: ~~Come hai fatto a sapere?~~ → Come hai fatto a saperlo?
+
+**#33 · Jordan’s dreams came true.** — 'Realizzati i sogni di Jordan' reads like a headline, not a sentence
+- Italian: ~~Realizzati i sogni di Jordan.~~ → I sogni di Jordan si sono realizzati.
+
+**#40 · I don’t want any more of it.** — 'Di più' means 'more than that', not 'any more'
+- Italian: ~~Non ne voglio di più.~~ → Non ne voglio più.
+
+**#43 · By the way, thanks for the update.** — 'Intanto' means 'meanwhile'; 'by the way' is 'comunque' or 'a proposito'
+- Italian: ~~Intanto, grazie per l’aggiornamento.~~ → Comunque, grazie per l'aggiornamento.
+- E.g.: ~~Comunque, grazie per l’aggiornamento.~~ → Intanto, grazie per l'aggiornamento (meanwhile)
+
+**#51 · I’m not used to someone doing that.** — abituato che → abituato al fatto che
+- Italian: ~~Non sono abituato che qualcuno lo faccia.~~ → Non sono abituato al fatto che qualcuno lo faccia.
+
+**#60 · I’m loving this** — 'Questo lo sto amando' is a word-for-word copy of the English; Italians say 'mi sta piacendo un sacco'
+- Italian: ~~Questo lo sto amando~~ → Mi sta piacendo un sacco.
+- E.g.: ~~Mi sta piacendo un sacco~~ → Me lo sto godendo

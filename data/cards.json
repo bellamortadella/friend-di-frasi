@@ -1,6 +1,7 @@
 [
  {
   "id": "1.0",
+  "exLabel": "E.g.",
   "cards": [
    {
     "n": 1,
@@ -568,6 +569,7 @@
  },
  {
   "id": "1.1",
+  "exLabel": "E.g.",
   "cards": [
    {
     "n": 1,
@@ -936,7 +938,7 @@
    {
     "n": 61,
     "en": "Fancy a quick fling",
-    "it": "Ti va una liaison volante con un fresh coffeess?",
+    "it": "Ti va una scappatella veloce con un caffè fresco?",
     "t": "E"
    },
    {
@@ -1026,7 +1028,7 @@
    {
     "n": 76,
     "en": "It will be good for you to do yoga",
-    "it": "ti fa bene fare yoga",
+    "it": "Ti farà bene fare yoga.",
     "t": "O"
    },
    {
@@ -1135,6 +1137,7 @@
  },
  {
   "id": "1.2",
+  "exLabel": "E.g.",
   "cards": [
    {
     "n": 1,
@@ -1379,7 +1382,7 @@
    {
     "n": 41,
     "en": "If it's not soup, it's wet bread",
-    "it": "Se non è zuppa, è pan bagnato. ci metti lo stesso",
+    "it": "Se non è zuppa, è pan bagnato.",
     "t": "O"
    },
    {
@@ -1657,6 +1660,1887 @@
     "en": "I thought you were feeling bad",
     "it": "Pensavo che ti sentissi male.",
     "t": "P"
+   }
+  ]
+ },
+ {
+  "id": "1.3",
+  "exLabel": "Alt",
+  "cards": [
+   {
+    "n": 1,
+    "en": "I need to get used to it",
+    "it": "Mi ci devo abituare",
+    "ex": "Devo abituarmi",
+    "no": "ci refers back to the situation; locals almost always include it.",
+    "t": "D"
+   },
+   {
+    "n": 2,
+    "en": "I had a great time",
+    "it": "Me la sono spassata",
+    "ex": "Mi sono divertito/a",
+    "no": "Reflexive past needs essere — divertita if speaker is female.",
+    "t": "F"
+   },
+   {
+    "n": 3,
+    "en": "It depends",
+    "it": "Dipende",
+    "ex": "Secondo me... (if giving your take)",
+    "no": "One word does the job; no filler needed.",
+    "t": "O"
+   },
+   {
+    "n": 4,
+    "en": "Let me know",
+    "it": "Fammelo sapere",
+    "ex": "Dimmi",
+    "no": "Fammelo = fammi + lo, contracted. Very natural in texts and speech.",
+    "t": "A"
+   },
+   {
+    "n": 5,
+    "en": "I am not in the mood",
+    "it": "Non ho voglia",
+    "ex": "Non me la sento",
+    "no": "Ho voglia is the go-to; non me la sento implies a deeper reluctance.",
+    "t": "F"
+   },
+   {
+    "n": 6,
+    "en": "We figured it out",
+    "it": "Ce la siamo cavata",
+    "ex": "Abbiamo risolto",
+    "no": "Cavarsela = to manage/get by. Ce la siamo cavata is warmer and more colloquial.",
+    "t": "D"
+   },
+   {
+    "n": 7,
+    "en": "It does not matter",
+    "it": "Non importa",
+    "ex": "Lascia perdere",
+    "no": "Lascia perdere (forget it) is stronger — use it when you want to drop something entirely.",
+    "t": "O"
+   },
+   {
+    "n": 8,
+    "en": "I am running late",
+    "it": "Sono in ritardo",
+    "ex": "Sto arrivando (if en route)",
+    "no": "Sono in ritardo is neutral fact; sto arrivando reassures the other person you are moving.",
+    "t": "T"
+   },
+   {
+    "n": 9,
+    "en": "Can you do me a favour",
+    "it": "Mi fai un favore",
+    "ex": "Mi dai una mano",
+    "no": "Mi dai una mano (give me a hand) is the more casual, everyday version.",
+    "t": "A"
+   },
+   {
+    "n": 10,
+    "en": "I will think about it",
+    "it": "Ci penserò.",
+    "ex": "Ci devo pensare",
+    "no": "Ci penso io implies you are taking ownership; ci devo pensare means you genuinely need time.",
+    "t": "O"
+   },
+   {
+    "n": 11,
+    "en": "I can get used to that",
+    "it": "Mi ci posso abituare",
+    "ex": "Mi ci abituerò, vedrai",
+    "no": "Mi ci posso abituare — the ci refers back to the situation; locals almost always include it.",
+    "t": "D"
+   },
+   {
+    "n": 12,
+    "en": "Have fun tonight, guys",
+    "it": "Divertitevi stasera, ragazzi",
+    "ex": "Fatevi una bella serata, ragazzi",
+    "no": "Divertirsi is reflexive — use divertitevi for a group, divertiti for one person.",
+    "t": "P"
+   },
+   {
+    "n": 13,
+    "en": "I probably left it at home",
+    "it": "Probabilmente l'ho lasciato a casa.",
+    "ex": "Mi sa che l'ho lasciato a casa",
+    "no": "Past participle agreement: lasciato stays masculine here since the object (it) is unspecified.",
+    "t": "D"
+   },
+   {
+    "n": 14,
+    "en": "She got used to the new schedule",
+    "it": "Si è abituata al nuovo orario",
+    "no": "Reflexive past always needs essere + agreement — abituata if the speaker/subject is female.",
+    "t": "D"
+   },
+   {
+    "n": 15,
+    "en": "We should book the tickets soon",
+    "it": "Dovremmo prenotare presto i biglietti",
+    "ex": "Meglio prenotare i biglietti al più presto",
+    "t": "T"
+   },
+   {
+    "n": 16,
+    "en": "Clues were everywhere in that film",
+    "it": "C’erano indizi ovunque in quel film",
+    "no": "Indizi is the plural of indizio — clues/evidence.",
+    "t": "O"
+   },
+   {
+    "n": 17,
+    "en": "It won’t let me do it / It stops me doing it",
+    "it": "Non me lo fa fare",
+    "ex": "Non mi lascia farlo",
+    "no": "Fare + infinitive is the causative — “non me lo fa fare” is the natural version, more common than “non mi lascia.”",
+    "t": "D"
+   },
+   {
+    "n": 18,
+    "en": "I took my clothes off / I got undressed",
+    "it": "Mi sono tolto i vestiti",
+    "ex": "Mi sono spogliato",
+    "no": "Reflexive past + essere; togliersi i vestiti is a bit literal — spogliarsi is the go-to verb for getting undressed.",
+    "t": "D"
+   },
+   {
+    "n": 19,
+    "en": "There’s no feeling like being here",
+    "it": "Non c'è niente come stare qui.",
+    "ex": "Non c'è niente di meglio che stare qui",
+    "no": "Added “qui” to complete the thought; “non c’è niente come...” is actually the more natural way to say this.",
+    "t": "F"
+   },
+   {
+    "n": 20,
+    "en": "In front of us / Ahead of us",
+    "it": "Davanti a noi",
+    "ex": "Di fronte a noi",
+    "no": "Davanti a and di fronte a are interchangeable for “in front of” — davanti a is the more everyday choice.",
+    "t": "D"
+   },
+   {
+    "n": 21,
+    "en": "The way he/she does things / His/her manner",
+    "it": "Il suo modo di fare",
+    "ex": "Il suo stile",
+    "no": "“Modo di fare” describes someone’s general manner/attitude, broader than just “style.”",
+    "t": "P"
+   },
+   {
+    "n": 22,
+    "en": "How long before we go? / When do we pass through?",
+    "it": "Fra quanto passiamo?",
+    "ex": "Quanto manca prima di partire?",
+    "no": "“Fra quanto” = “in how long” — the standard way to ask about timing.",
+    "t": "T"
+   },
+   {
+    "n": 23,
+    "en": "I didn’t think it would be this easy",
+    "it": "Non pensavo sarebbe stato così facile",
+    "ex": "Non pensavo fosse così facile",
+    "no": "Conditional-in-the-past (sarebbe stato) is correct — corrected from “sarrebe.”",
+    "t": "O"
+   },
+   {
+    "n": 24,
+    "en": "I’m quite disappointed in you",
+    "it": "Sono piuttosto deluso da te",
+    "ex": "Mi hai deluso parecchio",
+    "no": "“Deluso da te” stays neutral; “mi hai deluso” shifts focus onto the action — both natural.",
+    "t": "F"
+   },
+   {
+    "n": 25,
+    "en": "Who knows who he/she learned it from",
+    "it": "Chissà da chi lo avrà imparato",
+    "ex": "Chissà chi glielo ha insegnato",
+    "no": "Future of probability (avrà imparato) expresses a guess about the past — very common construction.",
+    "t": "O"
+   },
+   {
+    "n": 26,
+    "en": "He/she/it could die",
+    "it": "Potrebbe morire",
+    "ex": "Rischia di morire",
+    "no": "Potrebbe is plain possibility; rischia di adds a sense of danger.",
+    "t": "D"
+   },
+   {
+    "n": 27,
+    "en": "It’s already cleaner than this, what more do you want?",
+    "it": "È già più pulito di così, cosa vuoi di più?",
+    "ex": "È già pulitissimo, cosa vuoi di più",
+    "no": "“Cosa vuoi” tacked on the end works as a rhetorical shrug — very colloquial.",
+    "t": "O"
+   },
+   {
+    "n": 28,
+    "en": "Clues / Evidence",
+    "it": "Indizi",
+    "ex": "Prove",
+    "no": "Plural of indizio; prove is stronger — actual proof vs. a hint or clue.",
+    "t": "O"
+   },
+   {
+    "n": 29,
+    "en": "I think so / It seems likely",
+    "it": "Mi sa di sì",
+    "ex": "Penso di sì",
+    "no": "“Mi sa” is the casual, gut-feeling version of “I think”; corrected si → sì (needs the accent for “yes”).",
+    "t": "O"
+   },
+   {
+    "n": 30,
+    "en": "You don’t have to pretend to be happy",
+    "it": "Non devi fingere di essere felice",
+    "ex": "Non devi far finta di essere felice",
+    "no": "Fingere di + infinitive always needs “di” — corrected from “fingere essere.”",
+    "t": "F"
+   },
+   {
+    "n": 31,
+    "en": "It feels good here / One feels at ease here",
+    "it": "Si sta bene",
+    "ex": "Si sta proprio bene qui",
+    "no": "Impersonal “si” construction — describes a general feeling of comfort in a place.",
+    "t": "F"
+   },
+   {
+    "n": 32,
+    "en": "Upside down / Somersault",
+    "it": "Capovolta",
+    "ex": "Fare una capriola",
+    "no": "Capovolta works as an adjective (upside down) or a noun for the flip/somersault itself.",
+    "t": "D"
+   },
+   {
+    "n": 33,
+    "en": "Good try! / Nice attempt!",
+    "it": "Bel tentativo",
+    "ex": "Ci hai provato!",
+    "no": "Corrected tenativo → tentativo; “ci hai provato” praises the effort itself rather than the result.",
+    "t": "P"
+   },
+   {
+    "n": 34,
+    "en": "My oldest / long-standing friend",
+    "it": "La mia amica storica",
+    "ex": "La mia amica di sempre",
+    "no": "“Storica” here means “long-time,” not literally historical — common in casual Italian.",
+    "t": "P"
+   },
+   {
+    "n": 35,
+    "en": "Are you taking the piss? / You’re kidding me!",
+    "it": "Mi prendi per il culo",
+    "ex": "Mi stai prendendo in giro",
+    "no": "Vulgar/informal register — prendere in giro is the polite equivalent with the same meaning.",
+    "t": "F"
+   },
+   {
+    "n": 36,
+    "en": "I haven’t seen Marco for two weeks",
+    "it": "Non vedo Marco da due settimane",
+    "ex": "Sono due settimane che non vedo Marco",
+    "no": "Present tense + “da” for an action continuing up to now — the standard construction.",
+    "t": "P"
+   },
+   {
+    "n": 37,
+    "en": "I haven’t seen Marco for two weeks",
+    "it": "È da due settimane che non vedo Marco",
+    "ex": "Non vedo Marco da due settimane",
+    "no": "Fronting “è da...” puts more emphasis on the duration than the plain “da” version.",
+    "t": "P"
+   },
+   {
+    "n": 38,
+    "en": "He/it must have taken a really long time",
+    "it": "Deve averci messo un sacco di tempo",
+    "ex": "Ci avrà messo un’eternità",
+    "no": "“Metterci” + time is the idiom for “it takes [someone] [time]”; dovere + past infinitive expresses a strong guess.",
+    "t": "T"
+   },
+   {
+    "n": 39,
+    "en": "Then it stops me / Then it blocks me",
+    "it": "Poi mi blocca",
+    "ex": "Poi mi impedisce di andare avanti",
+    "no": "Non-human subject (an app, a system) doing the blocking — bloccare covers literal and figurative stopping.",
+    "t": "D"
+   },
+   {
+    "n": 40,
+    "en": "There are more than 3,000 of them",
+    "it": "Ce ne sono più di 3000",
+    "ex": "Sono oltre 3000",
+    "no": "“Ce ne sono” = existential “there are” + “ne” replacing the counted item — don’t drop the “ne.”",
+    "t": "D"
+   },
+   {
+    "n": 41,
+    "en": "I need to lie down",
+    "it": "Ho bisogno di sdraiarmi",
+    "ex": "Devo stendermi un attimo",
+    "no": "Sdraiarsi and stendersi both mean “to lie down”; stendersi feels a touch more casual.",
+    "t": "D"
+   },
+   {
+    "n": 42,
+    "en": "This is my reasoning",
+    "it": "Questo è il mio ragionamento",
+    "ex": "Ecco come ragiono io",
+    "no": "“Ecco come ragiono io” sounds more natural in conversation than the noun form.",
+    "t": "O"
+   },
+   {
+    "n": 43,
+    "en": "It would have taken me a whole morning to do it",
+    "it": "Ci avrei messo una mattinata a farlo",
+    "ex": "Mi ci sarebbe voluta una mattinata intera",
+    "no": "Corrected mattina → mattinata — mattinata frames it as a whole morning span, not just “morning” generically.",
+    "t": "T"
+   },
+   {
+    "n": 44,
+    "en": "You made him do it",
+    "it": "Glielo hai fatto fare",
+    "ex": "L’hai costretto a farlo",
+    "no": "Causative fare + infinitive; costringere implies more force/pressure than the neutral causative.",
+    "t": "P"
+   },
+   {
+    "n": 45,
+    "en": "Misunderstanding",
+    "it": "Malinteso",
+    "ex": "Un equivoco",
+    "no": "Near-synonyms; malinteso leans slightly more toward a communication mix-up.",
+    "t": "P"
+   },
+   {
+    "n": 46,
+    "en": "Unease / Discomfort / Awkwardness",
+    "it": "Disagio",
+    "ex": "Imbarazzo",
+    "no": "Disagio is broader (physical or social unease); imbarazzo is specifically embarrassment.",
+    "t": "F"
+   },
+   {
+    "n": 47,
+    "en": "Leave me alone / Let go of me",
+    "it": "Mollami",
+    "ex": "Lasciami stare",
+    "no": "Mollare here = “let go/drop it”; imperative + “mi” attached, informal tone.",
+    "t": "F"
+   },
+   {
+    "n": 48,
+    "en": "My ears are still developing.",
+    "it": "Mi si stanno ancora sviluppando le orecchie.",
+    "ex": "Le mie orecchie si stanno ancora sviluppando.",
+    "no": "Indirect object construction (mi... le orecchie) is more natural than leading with the possessive.",
+    "t": "D"
+   },
+   {
+    "n": 49,
+    "en": "Can you tell me how it works?",
+    "it": "Mi sai dire come funziona?",
+    "ex": "Puoi dirmi come funziona?",
+    "no": "Restructured — “mi sai” needs “dire” right after it; sapere here means “are you able to.”",
+    "t": "A"
+   },
+   {
+    "n": 50,
+    "en": "Jordan is a pain / a drag",
+    "it": "Jordan è una rottura",
+    "ex": "Jordan è una palla",
+    "no": "Corrected the English possessive to “è”; “una rottura (di scatole)” and “una palla” both mean someone annoying.",
+    "t": "P"
+   },
+   {
+    "n": 51,
+    "en": "There’s plenty of it",
+    "it": "Ce n’è tanto",
+    "ex": "Ce n’è in abbondanza",
+    "no": "Corrected spacing/apostrophe from “C’è ne tanto” — ne attaches directly after ce, no space.",
+    "t": "E"
+   },
+   {
+    "n": 52,
+    "en": "Let’s change the subject",
+    "it": "Cambiamo discorso",
+    "ex": "Parliamo d’altro",
+    "no": "Both common; “parliamo d’altro” is a touch more casual/deflecting.",
+    "t": "P"
+   },
+   {
+    "n": 53,
+    "en": "I’ll take care of him too",
+    "it": "Mi occuperò anche di lui",
+    "ex": "Penserò anche a lui",
+    "no": "Occuparsi di and pensare a both mean “to look after”; occuparsi sounds a bit more formal/responsible.",
+    "t": "P"
+   },
+   {
+    "n": 54,
+    "en": "Infamous bastards",
+    "it": "Bastardi infami",
+    "ex": "Pezzi di merda",
+    "no": "Vulgar exclamation — infame intensifies bastardo, implying particularly despicable behavior.",
+    "t": "F"
+   },
+   {
+    "n": 55,
+    "en": "I’m coming right away to open up",
+    "it": "Vengo subito ad aprire",
+    "ex": "Arrivo, apro subito",
+    "no": "Corrected aprirsi → aprire — non-reflexive here since you’re opening something (a door); venire a + infinitive needs “a.”",
+    "t": "D"
+   },
+   {
+    "n": 56,
+    "en": "You’d already left",
+    "it": "Te ne sei già andata",
+    "ex": "Eri già andata via",
+    "no": "Andarsene is reflexive + “ne”; “già” sits between the auxiliary and the past participle.",
+    "t": "T"
+   },
+   {
+    "n": 57,
+    "en": "Did you watch any matches?",
+    "it": "Hai guardato qualche partita?",
+    "ex": "Hai visto qualche partita?",
+    "no": "Guardare (watch actively) and vedere (catch/see) are both used for watching sports.",
+    "t": "A"
+   },
+   {
+    "n": 58,
+    "en": "Who do you think will win?",
+    "it": "Chi pensi che vincerà?",
+    "ex": "Chi credi che vinca?",
+    "no": "“Pensare che” + future indicative is common in casual speech, even though “credere che” formally wants the subjunctive.",
+    "t": "O"
+   },
+   {
+    "n": 59,
+    "en": "I missed a call",
+    "it": "Ho perso una chiamata",
+    "ex": "Mi è arrivata una chiamata persa",
+    "no": "“Perdere una chiamata” is the direct, everyday way to say it.",
+    "t": "D"
+   },
+   {
+    "n": 60,
+    "en": "I’m moving over",
+    "it": "Mi sposto; Lo spostiamo qui?; Spostiamolo, qui dà fastidio.",
+    "ex": "Mi sposto per farti passare",
+    "no": "Reflexive spostarsi — used both literally (shifting position) and for stepping aside.",
+    "t": "D"
+   },
+   {
+    "n": 61,
+    "en": "As long as you’re okay",
+    "it": "Basta che tu stia bene",
+    "ex": "L’importante è che tu stia bene",
+    "no": "“Basta che” + subjunctive (stia) — a condition being sufficient always triggers the subjunctive.",
+    "t": "P"
+   },
+   {
+    "n": 62,
+    "en": "Let’s go for a little walk",
+    "it": "Facciamo un giretto",
+    "ex": "Andiamo a fare due passi",
+    "no": "Giretto (diminutive of giro) makes it sound short and casual.",
+    "t": "T"
+   },
+   {
+    "n": 63,
+    "en": "In my view, I have my doubts",
+    "it": "Nel mio punto di vista, ho i miei dubbi",
+    "ex": "Secondo me, ho i miei dubbi",
+    "no": "Corrected visto→vista and miei→i miei; “secondo me” is actually the more natural way to say “in my view.”",
+    "t": "O"
+   },
+   {
+    "n": 64,
+    "en": "Everyone asks me this question. Everyone asks me it.",
+    "it": "Tutti mi fanno questa domanda. Me lo chiedono tutti.",
+    "ex": "Me la fanno sempre, questa domanda.",
+    "no": "Second sentence swaps to chiedere + double clitic (me lo) — the natural way to avoid repeating “questa domanda.”",
+    "t": "A"
+   },
+   {
+    "n": 65,
+    "en": "I’ll move it right away.",
+    "it": "Lo sposto subito.",
+    "ex": "Lo sposto immediatamente.",
+    "no": "Direct object “lo” attaches before spostare — present tense used for an immediate near-future action.",
+    "t": "D"
+   },
+   {
+    "n": 66,
+    "en": "It got dark",
+    "it": "Si è fatto buio",
+    "ex": "È diventato buio",
+    "no": "Added the accent; “si è fatto buio” is the standard impersonal way to describe darkness falling.",
+    "t": "D"
+   },
+   {
+    "n": 67,
+    "en": "Who deals with dinosaurs?",
+    "it": "Chi si occupa di dinosauri?",
+    "ex": "Chi se ne occupa, dei dinosauri?",
+    "no": "Occuparsi di = “to be in charge of/deal with” a topic or field.",
+    "t": "A"
+   },
+   {
+    "n": 68,
+    "en": "I knew you would say that",
+    "it": "Lo sapevo che l’avresti detto",
+    "ex": "Lo sapevo che l’avresti detto tu",
+    "no": "Conditional perfect (avresti detto) expresses “would say/would have said” from a past viewpoint.",
+    "t": "O"
+   },
+   {
+    "n": 69,
+    "en": "You behave / you’re behaving",
+    "it": "Ti comporti",
+    "ex": "Ti stai comportando (bene/male)",
+    "no": "Comportarsi is reflexive; needs a completion (e.g. “ti comporti bene/male”) to be a full sentence — incomplete as captured.",
+    "t": "P"
+   },
+   {
+    "n": 70,
+    "en": "Willing to stay here for kisses.",
+    "it": "Disposta a stare qui per dei bacini.",
+    "ex": "Disposto a stare qui per dei bacini (if speaker is male)",
+    "no": "“Disposta” is feminine — switch to “disposto” if the speaker is male.",
+    "t": "P"
+   },
+   {
+    "n": 71,
+    "en": "I make an effort to speak Italian every day.",
+    "it": "Mi sforzo di parlare italiano ogni giorno.",
+    "ex": "Cerco di parlare italiano ogni giorno.",
+    "no": "Sforzarsi di + infinitive — reflexive, always takes “di” before the verb.",
+    "t": "D"
+   },
+   {
+    "n": 72,
+    "en": "Make a bit of an effort.",
+    "it": "Sforzati un po’.",
+    "ex": "Impegnati un po’ di più.",
+    "no": "Imperative of the reflexive sforzarsi — “un po’” softens it into a friendly nudge rather than a demand.",
+    "t": "P"
+   },
+   {
+    "n": 73,
+    "en": "Climbing in the heat is demanding.",
+    "it": "Salire con il caldo è impegnativo.",
+    "ex": "Salire con questo caldo è una faticaccia.",
+    "no": "Impegnativo = demanding in effort/commitment, not just physically tiring.",
+    "t": "D"
+   },
+   {
+    "n": 74,
+    "en": "With this heat it’s really tiring.",
+    "it": "Con questo caldo è davvero faticoso.",
+    "ex": "Con questo caldo ti stanchi subito.",
+    "no": "Faticoso describes the activity as tiring, contrasting with impegnativo (more about effort/commitment).",
+    "t": "D"
+   },
+   {
+    "n": 75,
+    "en": "The mosquitoes bit me.",
+    "it": "Mi hanno punto le zanzare.",
+    "ex": "Le zanzare mi hanno punto.",
+    "no": "Pungere (sting/bite) is the verb for insects — mordere is for mammal bites.",
+    "t": "D"
+   },
+   {
+    "n": 76,
+    "en": "The mosquitoes are eating me alive!",
+    "it": "Mi stanno massacrando le zanzare!",
+    "ex": "Le zanzare mi stanno divorando!",
+    "no": "Massacrare here is hyperbolic/informal — “eating me alive,” not literal.",
+    "t": "F"
+   },
+   {
+    "n": 77,
+    "en": "How many can I eat?",
+    "it": "Quanti ne posso mangiare?",
+    "ex": "Quanti ne posso prendere?",
+    "no": "“Ne” stands in for the noun already mentioned — don’t drop it or the sentence sounds incomplete.",
+    "t": "E"
+   },
+   {
+    "n": 78,
+    "en": "I've got the rest / I'll cover the rest",
+    "it": "Pago io il resto",
+    "ex": "Al resto ci penso io",
+    "no": "Both mean “I’ll take care of it” — pago io implies money specifically, ci penso io is more general.",
+    "t": "E"
+   },
+   {
+    "n": 79,
+    "en": "I thought the same thing",
+    "it": "Ho pensato la stessa cosa",
+    "ex": "Proprio quello che pensavo",
+    "no": "“Proprio quello che pensavo” is the more natural reaction in conversation than the literal version.",
+    "t": "O"
+   },
+   {
+    "n": 80,
+    "en": "How heavy is it?",
+    "it": "Quanto è pesante?",
+    "ex": "Quanto pesa?",
+    "no": "“Quanto pesa” (lit. how much does it weigh) is just as common and a bit more casual.",
+    "t": "A"
+   },
+   {
+    "n": 81,
+    "en": "How big is it?",
+    "it": "Quanto è grande?",
+    "no": "“Grande” covers both size and age depending on context.",
+    "t": "A"
+   },
+   {
+    "n": 82,
+    "en": "How far is it?",
+    "it": "Quanto è lontano?",
+    "ex": "Quanto dista?",
+    "no": "“Quanto dista” is more formal/precise — “quanto è lontano” is what you’d actually say.",
+    "t": "A"
+   },
+   {
+    "n": 83,
+    "en": "I didn't imagine the park was so big",
+    "it": "Non immaginavo quanto fosse grande il parco",
+    "no": "“Quanto fosse” triggers the subjunctive because it follows a verb of thought/imagination.",
+    "t": "F"
+   },
+   {
+    "n": 84,
+    "en": "But it weighs a ton!",
+    "it": "Ma pesa tanto!",
+    "ex": "Ma quanto pesa!",
+    "no": "“Ma quanto pesa!” is the more exclamatory native version — same idea, more emphasis.",
+    "t": "F"
+   },
+   {
+    "n": 85,
+    "en": "I'll tell you all about it later, I have to finish this now",
+    "it": "Poi ti racconto tutto quanto, adesso devo finire questo",
+    "no": "“Tutto quanto” = “the whole thing” — adds emphasis over plain “tutto.”",
+    "t": "T"
+   },
+   {
+    "n": 86,
+    "en": "I'll tell you later about something that made me laugh",
+    "it": "Poi ti racconto una cosa che mi ha fatto ridere",
+    "no": "“Poi ti racconto” is a stock conversational opener — use it to park a story for later.",
+    "t": "T"
+   },
+   {
+    "n": 87,
+    "en": "By the end of these next few weeks, I want to be able to speak naturally",
+    "it": "Entro la fine di queste settimane voglio riuscire a parlare in modo naturale",
+    "no": "“Riuscire a” = to manage to — implies real progress, stronger than just “potere.”",
+    "t": "T"
+   },
+   {
+    "n": 88,
+    "en": "I got it wrong before — the correct dates are October 1st to the 9th",
+    "it": "Prima avevo sbagliato, le date giuste ora sono dal primo ottobre al nove",
+    "ex": "Dal primo al nove ottobre",
+    "no": "“Dal... al...” is the standard way to give a date range.",
+    "t": "T"
+   },
+   {
+    "n": 89,
+    "en": "I didn't expect that from you",
+    "it": "Non me l'aspettavo da te",
+    "no": "“Aspettarsi” (to expect) is reflexive — “me l’aspettavo,” not “l’aspettavo.”",
+    "t": "F"
+   },
+   {
+    "n": 90,
+    "en": "Who would have expected that",
+    "it": "Chi se lo aspettava",
+    "no": "Same reflexive verb, third person — “se lo aspettava,” not “lo aspettava.”",
+    "t": "F"
+   }
+  ]
+ },
+ {
+  "id": "1.4",
+  "exLabel": "Alt",
+  "cards": [
+   {
+    "n": 1,
+    "en": "I did expect that, actually",
+    "it": "Me l'aspettavo, infatti",
+    "no": "“Infatti” here means “actually/indeed,” confirming a suspicion — like saying “I called it.”",
+    "t": "F"
+   },
+   {
+    "n": 2,
+    "en": "I just realized",
+    "it": "Mi sono appena reso conto",
+    "ex": "Si è appena resa conto (if she realized)",
+    "no": "“Rendersi conto” is reflexive and needs gender agreement in the past — reso (m) / resa (f).",
+    "t": "O"
+   },
+   {
+    "n": 3,
+    "en": "I just got it / understood it",
+    "it": "L'ho appena capito",
+    "no": "Simple non-reflexive past — contrast with “rendersi conto” above.",
+    "t": "O"
+   },
+   {
+    "n": 4,
+    "en": "I want to go biking",
+    "it": "Voglio andare in bici",
+    "ex": "Voglio fare un giro in bici",
+    "no": "“Fare un giro in bici” (go for a bike ride) sounds more like a leisurely outing.",
+    "t": "D"
+   },
+   {
+    "n": 5,
+    "en": "To have crushed it (e.g. an exam)",
+    "it": "Averlo polverizzato",
+    "ex": "L'ho polverizzato all'esame.",
+    "no": "“Polverizzare” (lit. to pulverize) is slang for totally crushing/destroying something.",
+    "t": "F"
+   },
+   {
+    "n": 6,
+    "en": "Correct me",
+    "it": "Correggimi",
+    "ex": "Correggimi se sbaglio",
+    "no": "Informal imperative of “correggere” — add “se sbaglio” to soften it into a common request.",
+    "t": "A"
+   },
+   {
+    "n": 7,
+    "en": "We have to throw it away",
+    "it": "Dobbiamo buttarlo",
+    "ex": "Dobbiamo buttarlo via",
+    "no": "“Buttare via” (throw away) is more explicit than plain “buttare.”",
+    "t": "D"
+   },
+   {
+    "n": 8,
+    "en": "In everyday conversations",
+    "it": "Nelle conversazioni quotidiane",
+    "no": "“Quotidiano” = daily/everyday — think “day-by-day.”",
+    "t": "O"
+   },
+   {
+    "n": 9,
+    "en": "Sometimes people say you have a natural talent",
+    "it": "A volte la gente dice che hai un talento naturale",
+    "no": "“La gente” is always singular — “la gente dice,” not “dicono.”",
+    "t": "P"
+   },
+   {
+    "n": 10,
+    "en": "Well, it didn't seem very easy to me",
+    "it": "Beh non mi è sembrato molto facile",
+    "no": "“Sembrare” takes an indirect object — “mi è sembrato,” literally “it seemed to me.”",
+    "t": "O"
+   },
+   {
+    "n": 11,
+    "en": "I would really like to go to the beach",
+    "it": "Mi piacerebbe molto andare al mare",
+    "no": "It's “andare al mare” (to the sea), not “andare il mare” — al = a + il.",
+    "t": "T"
+   },
+   {
+    "n": 12,
+    "en": "I did 100km on the bike",
+    "it": "Ho fatto 100 km in bici",
+    "no": "“In bici” = by bike — same construction as “in macchina,” “in treno.”",
+    "t": "D"
+   },
+   {
+    "n": 13,
+    "en": "Yesterday I went for a 100km bike ride",
+    "it": "Ieri ho fatto un giro in bici di 100 km",
+    "no": "“Un giro” = a ride/loop — sounds like a deliberate outing vs. the flatter statement above.",
+    "t": "D"
+   },
+   {
+    "n": 14,
+    "en": "I missed this",
+    "it": "Mi è mancato questo",
+    "no": "“Mancare” flips the subject — literally “this was missing to me.”",
+    "t": "F"
+   },
+   {
+    "n": 15,
+    "en": "Pistachio festival",
+    "it": "Sagra del pistacchio",
+    "no": "“Sagra” = a local food festival named after the star ingredient — common all over Italy.",
+    "t": "E"
+   },
+   {
+    "n": 16,
+    "en": "Don't forget me",
+    "it": "Non mi dimenticare",
+    "ex": "Non dimenticarti di me",
+    "no": "“Dimenticare” needs the full verb; the reflexive “non dimenticarti di me” is an equally common alternative.",
+    "t": "P"
+   },
+   {
+    "n": 17,
+    "en": "It's like their personality",
+    "it": "È come la loro personalità",
+    "no": "“Loro” (their) always goes with the article — “la loro personalità,” not just “loro personalità.”",
+    "t": "P"
+   },
+   {
+    "n": 18,
+    "en": "I want to give you some kisses",
+    "it": "Voglio darti dei baci",
+    "no": "“Dei baci” = some kisses — “dei” is the plural partitive article, like “some.”",
+    "t": "P"
+   },
+   {
+    "n": 19,
+    "en": "No big deal",
+    "it": "Niente di che",
+    "ex": "Non è niente di che",
+    "no": "Stock casual response to brush something off.",
+    "t": "F"
+   },
+   {
+    "n": 20,
+    "en": "Both of them are fine",
+    "it": "Tutte e due stanno bene",
+    "no": "It's “tutte e due” (both, feminine) — for mixed/masculine, “tutti e due.”",
+    "t": "P"
+   },
+   {
+    "n": 21,
+    "en": "You can't go wrong with a t-shirt",
+    "it": "Non si sbaglia mai con una maglietta",
+    "no": "Impersonal “si sbaglia” = “one is wrong” — reads more natural than a literal translation.",
+    "t": "O"
+   },
+   {
+    "n": 22,
+    "en": "What's the weather like?",
+    "it": "Che tempo fa?",
+    "t": "A"
+   },
+   {
+    "n": 23,
+    "en": "What was the weather like yesterday?",
+    "it": "Che tempo faceva ieri?",
+    "no": "Imperfect tense (faceva) because it describes an ongoing state in the past.",
+    "t": "A"
+   },
+   {
+    "n": 24,
+    "en": "What will the weather be like tomorrow?",
+    "it": "Che tempo farà domani?",
+    "no": "Future tense (farà) — same “fare” verb across all three weather questions.",
+    "t": "A"
+   },
+   {
+    "n": 25,
+    "en": "If you want, we're free now",
+    "it": "Se vuoi ci siamo adesso",
+    "no": "“Ci siamo” here means “we're around/available,” not literally “we are here.”",
+    "t": "T"
+   },
+   {
+    "n": 26,
+    "en": "What's the plan?",
+    "it": "Qual è il piano?",
+    "no": "“Qual” drops the final “e” before “è” — never write “quale è.”",
+    "t": "T"
+   },
+   {
+    "n": 27,
+    "en": "Something like that",
+    "it": "Una cosa del genere",
+    "ex": "Una cosa così",
+    "no": "“Una cosa così” is the more casual, everyday version of the same idea.",
+    "t": "O"
+   },
+   {
+    "n": 28,
+    "en": "Can we have some water?",
+    "it": "Possiamo avere dell'acqua?",
+    "ex": "Ci porti dell'acqua?",
+    "no": "“Dell'acqua” = some water, the partitive “di + la.”",
+    "t": "E"
+   },
+   {
+    "n": 29,
+    "en": "Let's go before it gets dark",
+    "it": "Andiamo prima che faccia buio",
+    "no": "“Prima che” always triggers the subjunctive — “faccia,” not “fa.”",
+    "t": "T"
+   },
+   {
+    "n": 30,
+    "en": "I would have bought it because my girlfriend wanted one",
+    "it": "L'avrei comprato perché la mia ragazza ne voleva uno",
+    "no": "“Ne voleva uno” = “wanted one (of them)” — “ne” replaces the noun already mentioned.",
+    "t": "P"
+   },
+   {
+    "n": 31,
+    "en": "Can I sit outside?",
+    "it": "Posso sedermi fuori?",
+    "no": "“Sedersi” is reflexive — “posso sedermi,” not “posso sedere.”",
+    "t": "E"
+   },
+   {
+    "n": 32,
+    "en": "I wish you were here",
+    "it": "Vorrei tanto che tu fossi qui.",
+    "ex": "Mi sarebbe piaciuto che tu fossi qui (I'd have liked you to be here)",
+    "no": "Both trigger the subjunctive after “che” — “vorrei tanto” is the punchier, more common way to say it.",
+    "t": "P"
+   },
+   {
+    "n": 33,
+    "en": "Would you have liked to be here?",
+    "it": "Ti sarebbe piaciuto essere qui?",
+    "no": "Past conditional of “piacere” — plain infinitive here since the subject doesn't change.",
+    "t": "P"
+   },
+   {
+    "n": 34,
+    "en": "Would you have liked to listen?",
+    "it": "Ti sarebbe piaciuto ascoltare?",
+    "ex": "Avresti voluto ascoltare",
+    "no": "“Sarebbe piaciuto” is a notch more polite/soft than “avresti voluto” (you would have wanted).",
+    "t": "A"
+   },
+   {
+    "n": 35,
+    "en": "Would you like to listen?",
+    "it": "Ti piacerebbe ascoltare?",
+    "ex": "Vorresti ascoltare",
+    "no": "Present conditional versions of the pair above — same soft/direct contrast, just not about the past.",
+    "t": "A"
+   },
+   {
+    "n": 36,
+    "en": "Could you pass me the salt? (casual)",
+    "it": "Mi passi il sale?",
+    "no": "Present tense used as a casual request among friends/family — no need for the conditional.",
+    "t": "E"
+   },
+   {
+    "n": 37,
+    "en": "Could you please pass me the salt? (formal)",
+    "it": "Mi potrebbe passare il sale, per favore?",
+    "no": "Formal “Lei” conditional — use with strangers, waitstaff, elders.",
+    "t": "E"
+   },
+   {
+    "n": 38,
+    "en": "Pass me the salt",
+    "it": "Passami il sale",
+    "no": "Direct imperative — most casual of the three, fine with close friends/family.",
+    "t": "E"
+   },
+   {
+    "n": 39,
+    "en": "Can you open the door for me? (casual)",
+    "it": "Mi apri la porta?",
+    "no": "Same casual-present-as-request pattern as the salt example.",
+    "t": "A"
+   },
+   {
+    "n": 40,
+    "en": "Could you please open the door for me? (formal)",
+    "it": "Mi potrebbe aprire la porta, per favore?",
+    "no": "Formal register pair to the casual door request.",
+    "t": "A"
+   },
+   {
+    "n": 41,
+    "en": "Water bottle",
+    "it": "Borraccia",
+    "no": "Specifically the reusable kind (metal/plastic) — “bottiglia” is for a disposable bottle.",
+    "t": "D"
+   },
+   {
+    "n": 42,
+    "en": "After that",
+    "it": "Dopo di che",
+    "no": "Common connector to link two parts of a story — “e dopo di che...”",
+    "t": "T"
+   },
+   {
+    "n": 43,
+    "en": "What do you say — of course not",
+    "it": "Che dici, certo che no",
+    "no": "“Che dici” here is rhetorical, not really asking an opinion — more like “come on.”",
+    "t": "O"
+   },
+   {
+    "n": 44,
+    "en": "Could I have a glass of water?",
+    "it": "Potrei avere un bicchiere d'acqua?",
+    "no": "“Potrei” (could I) is softer/politer than “posso” (can I) — good default for restaurant requests.",
+    "t": "E"
+   },
+   {
+    "n": 45,
+    "en": "Excuse me, could I sit here? (formal)",
+    "it": "Mi scusi, potrei sedermi qui?",
+    "no": "“Mi scusi” is the formal “excuse me” (Lei form) — “scusa” would be informal.",
+    "t": "A"
+   },
+   {
+    "n": 46,
+    "en": "What an awful thing",
+    "it": "Che brutta cosa",
+    "no": "Common sympathetic reaction to bad news, not angry.",
+    "t": "F"
+   },
+   {
+    "n": 47,
+    "en": "Let me do it",
+    "it": "Lasciami fare",
+    "no": "“Lasciare” + infinitive = “let (someone) do something” — pronoun attaches to the imperative.",
+    "t": "A"
+   },
+   {
+    "n": 48,
+    "en": "Just a little something (small gift/thought)",
+    "it": "Ti ho preso un pensierino.",
+    "no": "Diminutive of “pensiero” (thought) — a small, no-big-deal gift, often said while handing it over.",
+    "t": "P"
+   },
+   {
+    "n": 49,
+    "en": "You know what we should do",
+    "it": "Sai cosa dovremmo fare",
+    "no": "“Dovremmo” (conditional of dovere) is softer than “dobbiamo” — more like “we ought to.”",
+    "t": "T"
+   },
+   {
+    "n": 50,
+    "en": "When does it leave?",
+    "it": "A che ora parte?",
+    "ex": "Quando parte?",
+    "no": "“Da quando” literally asks “starting when” — for just the departure time, “a che ora parte” is more direct.",
+    "t": "T"
+   },
+   {
+    "n": 51,
+    "en": "Of course I can",
+    "it": "Certo che posso",
+    "t": "O"
+   },
+   {
+    "n": 52,
+    "en": "Who's missing?",
+    "it": "Chi manca?",
+    "no": "“Mancare” (to be missing/lacking) — same verb family as “mi è mancato” (I missed it).",
+    "t": "A"
+   },
+   {
+    "n": 53,
+    "en": "Do you know her?",
+    "it": "La conosci?",
+    "no": "Object pronouns go before the conjugated verb — “la conosci,” not after.",
+    "t": "P"
+   },
+   {
+    "n": 54,
+    "en": "About six months ago",
+    "it": "Circa sei mesi fa",
+    "no": "Watch the spelling — “mesi” (months), not “messi.”",
+    "t": "T"
+   },
+   {
+    "n": 55,
+    "en": "Sorry, I heard you wrong",
+    "it": "Scusa ti ho sentito male",
+    "ex": "Scusa, non ho capito bene",
+    "no": "“Sentito male” = heard badly/wrong, not “felt bad” — context makes it about hearing.",
+    "t": "A"
+   },
+   {
+    "n": 56,
+    "en": "One very last question",
+    "it": "Ultimissima domanda",
+    "no": "“Ultimissima” is the superlative of “ultima” — “the very last.”",
+    "t": "A"
+   },
+   {
+    "n": 57,
+    "en": "To remove",
+    "it": "Rimuovere",
+    "t": "D"
+   },
+   {
+    "n": 58,
+    "en": "To receive",
+    "it": "Ricevere",
+    "t": "D"
+   },
+   {
+    "n": 59,
+    "en": "This happened before we met",
+    "it": "Questo è successo prima che ci incontrassimo",
+    "no": "“Prima che” + subjunctive again — “incontrassimo,” not “incontrammo.”",
+    "t": "P"
+   },
+   {
+    "n": 60,
+    "en": "There's a ton of rain / it's raining a lot",
+    "it": "C'è un sacco di pioggia",
+    "ex": "Piove un sacco",
+    "no": "“Piove un sacco” is the more natural, verb-based way to say the same thing.",
+    "t": "D"
+   },
+   {
+    "n": 61,
+    "en": "You didn't let me finish",
+    "it": "Non mi hai lasciato finire",
+    "ex": "Non mi hai fatto finire",
+    "no": "Lasciare + infinitive = to let someone do something. In the past it's essere-free: “hai lasciato” + bare infinitive.",
+    "t": "F"
+   },
+   {
+    "n": 62,
+    "en": "He/she didn't let me pay",
+    "it": "Non mi ha lasciato pagare",
+    "no": "Same lasciare + infinitive pattern — the pronoun “mi” sits before the verb.",
+    "t": "E"
+   },
+   {
+    "n": 63,
+    "en": "They let me in",
+    "it": "Mi hanno lasciato entrare",
+    "ex": "Mi hanno fatto entrare",
+    "no": "“Lasciare entrare” = to let in — a super common fixed pairing you'll hear at doors and gates.",
+    "t": "D"
+   },
+   {
+    "n": 64,
+    "en": "You never let me decide",
+    "it": "Non mi lasci mai decidere",
+    "no": "“Mai” slots between the verb and the infinitive — “non mi lasci mai...” wraps the negative.",
+    "t": "F"
+   },
+   {
+    "n": 65,
+    "en": "You don't let me do anything",
+    "it": "Non mi lasci fare niente",
+    "no": "Italian needs the double negative — “non... niente,” never just “niente” after the verb.",
+    "t": "F"
+   },
+   {
+    "n": 66,
+    "en": "Why won't you let me do it?",
+    "it": "Perché non mi lasci farlo?",
+    "no": "The object pronoun attaches to the infinitive — “far + lo” = “farlo,” not “lo fare.”",
+    "t": "F"
+   },
+   {
+    "n": 67,
+    "en": "He/she won't let me do it",
+    "it": "Non me lo fa fare.",
+    "ex": "Non mi fa fare niente",
+    "no": "“Fare” + infinitive is the causative — literally “doesn't make me do,” used for “won't let me.”",
+    "t": "F"
+   },
+   {
+    "n": 68,
+    "en": "The light won't let me sleep",
+    "it": "La luce non mi fa dormire",
+    "no": "It's “la luce” (feminine singular), not “le luce” — and “fare” again = won't let me sleep.",
+    "t": "D"
+   },
+   {
+    "n": 69,
+    "en": "They let us go out",
+    "it": "Ci hanno permesso di uscire",
+    "no": "Permettere always takes “di” before the infinitive — “permesso DI uscire.”",
+    "t": "D"
+   },
+   {
+    "n": 70,
+    "en": "The owner let me use the garage",
+    "it": "Il proprietario mi ha permesso di usare il garage",
+    "no": "Permettere needs an indirect object (mi/ti/gli) — “mi ha permesso di...” = allowed me to.",
+    "t": "D"
+   },
+   {
+    "n": 71,
+    "en": "They didn't allow me to enter",
+    "it": "Non mi hanno permesso di entrare",
+    "no": "Same permettere + di pattern, negated — contrast with “lasciare entrare” which drops the “di.”",
+    "t": "D"
+   },
+   {
+    "n": 72,
+    "en": "I'll let you go out",
+    "it": "Ti permetto di uscire",
+    "no": "Present tense of permettere — still “di” + infinitive, just a different subject.",
+    "t": "P"
+   },
+   {
+    "n": 73,
+    "en": "I'm not allowed to anymore",
+    "it": "Non mi è più permesso",
+    "ex": "Non mi è più consentito",
+    "no": "Impersonal “è permesso” = it's allowed; “più” with “non” = not anymore.",
+    "t": "D"
+   },
+   {
+    "n": 74,
+    "en": "I can't buy it anymore",
+    "it": "Non posso più comprarlo",
+    "no": "It's “comprarlo” (comprare + lo), not “compralo”; “non... più” = not anymore.",
+    "t": "D"
+   },
+   {
+    "n": 75,
+    "en": "Problem solved",
+    "it": "Problema risolto",
+    "ex": "Problema superato",
+    "no": "Risolto = solved/resolved; superato = gotten past a problem.",
+    "t": "O"
+   },
+   {
+    "n": 76,
+    "en": "A little piece of advice",
+    "it": "Un piccolo consiglio",
+    "ex": "Un consiglio spassionato",
+    "no": "Piccolo softens it — makes the advice feel low-pressure, not preachy.",
+    "t": "O"
+   },
+   {
+    "n": 77,
+    "en": "If I'm not mistaken... yes",
+    "it": "Se non sbaglio... sì",
+    "ex": "Se ricordo bene... sì",
+    "no": "Corrected 'se no sbaglio' to 'se non sbaglio' — sbagliare always needs 'non', not 'no'.",
+    "t": "O"
+   },
+   {
+    "n": 78,
+    "en": "Pass through the park (imperative) / go through the park (common)",
+    "it": "Passa attraverso il parco / Passa per il parco",
+    "ex": "Attraversa il parco",
+    "no": "Per is the everyday choice; attraverso sounds a touch more formal/literal.",
+    "t": "D"
+   },
+   {
+    "n": 79,
+    "en": "I went through the park (most common) / more literal variant",
+    "it": "Sono passato per il parco / Sono passato attraverso il parco",
+    "ex": "Ho attraversato il parco",
+    "no": "Per is what you would actually say; attraverso emphasizes going from one side to the other.",
+    "t": "D"
+   },
+   {
+    "n": 80,
+    "en": "Let's go for a walk",
+    "it": "Facciamo una camminata",
+    "ex": "Andiamo a fare due passi",
+    "no": "Both natural — camminata suggests a proper walk, due passi a short stroll.",
+    "t": "T"
+   },
+   {
+    "n": 81,
+    "en": "I'm afraid it might break",
+    "it": "Ho paura che si rompa.",
+    "ex": "Avevo paura che si rompesse (I was afraid it would break)",
+    "no": "Imperfect subjunctive (rompesse) matches a past-tense fear; potesse rompere is the more analytical alternative.",
+    "t": "F"
+   },
+   {
+    "n": 82,
+    "en": "It's so hot",
+    "it": "Che caldo che c'è",
+    "ex": "Che caldo!",
+    "no": "\"Che X che c'è\" is a common exclamatory pattern — not literal, just intensifies.",
+    "t": "D"
+   },
+   {
+    "n": 83,
+    "en": "I fed it / them",
+    "it": "Gli ho dato da mangiare.",
+    "ex": "L'ho sfamato",
+    "no": "Dare da mangiare is the standard phrase for feeding an animal or person.",
+    "t": "D"
+   },
+   {
+    "n": 84,
+    "en": "Make sure to lock the door.",
+    "it": "Assicurati di chiudere la porta a chiave.",
+    "ex": "Ricordati di chiudere a chiave.",
+    "no": "Chiudere a chiave = to lock (with a key); assicurarsi di + infinitive = make sure to.",
+    "t": "D"
+   },
+   {
+    "n": 85,
+    "en": "How dare you?",
+    "it": "Come ti permetti?",
+    "ex": "Ma chi ti credi di essere?",
+    "no": "Permettersi here = to take the liberty — used almost exclusively in this indignant expression.",
+    "t": "F"
+   },
+   {
+    "n": 86,
+    "en": "I want to lie down.",
+    "it": "Voglio sdraiarmi.",
+    "ex": "Mi voglio stendere.",
+    "no": "Sdraiarsi and stendersi are interchangeable for lying down.",
+    "t": "D"
+   },
+   {
+    "n": 87,
+    "en": "The heat makes me want to lie down. The heat makes me sleepy.",
+    "it": "Il caldo mi fa venire voglia di sdraiarmi. Il caldo mi fa venire sonno.",
+    "ex": "Con questo caldo mi viene solo sonno.",
+    "no": "Fare venire voglia/sonno = \"make [someone] feel like/sleepy\" — a very common causative pattern.",
+    "t": "D"
+   },
+   {
+    "n": 88,
+    "en": "Let's lie down",
+    "it": "Sdraiamoci",
+    "ex": "Stendiamoci",
+    "no": "-iamo ending on a reflexive verb = \"let's\" for a group action.",
+    "t": "T"
+   },
+   {
+    "n": 89,
+    "en": "One can breathe a little",
+    "it": "Un pochino si respira",
+    "ex": "Si respira un attimo",
+    "no": "Corrected from 'si respir' — impersonal si + respirare, describes relief/breathing room.",
+    "t": "D"
+   },
+   {
+    "n": 90,
+    "en": "I'll try to do a bit without overdoing it",
+    "it": "Provo a fare un po' senza esagerare",
+    "ex": "Cerco di non strafare",
+    "no": "Corrected — provare needs 'a' before an infinitive, and it's esagerare not esaggerare.",
+    "t": "D"
+   }
+  ]
+ },
+ {
+  "id": "1.5",
+  "exLabel": "Alt",
+  "cards": [
+   {
+    "n": 1,
+    "en": "I feel like crying / it makes me feel like crying / it makes me hungry",
+    "it": "Mi viene da piangere / Mi fa venire da piangere / Mi fa venire fame",
+    "no": "Venire da + infinitive = \"feel like doing\" — one of the most useful causative constructions in Italian.",
+    "t": "F"
+   },
+   {
+    "n": 2,
+    "en": "Let's see first, worst case we'll ask for directions along the way",
+    "it": "Prima vediamo, al massimo chiediamo strada facendo",
+    "ex": "Vediamo strada facendo",
+    "no": "\"Strada facendo\" = \"along the way\" — handy idiom, literally \"the road doing.\"",
+    "t": "T"
+   },
+   {
+    "n": 3,
+    "en": "it happens to the best",
+    "it": "Capita anche ai migliori.",
+    "ex": "Capita",
+    "no": "Succedere and capitare are interchangeable for \"to happen.\"",
+    "t": "O"
+   },
+   {
+    "n": 4,
+    "en": "there were a lot of them",
+    "it": "ce ne sono stati molti",
+    "ex": "ce n'erano tanti",
+    "no": "Ne stands in for \"of them\" — don't drop it, the sentence sounds incomplete without it.",
+    "t": "D"
+   },
+   {
+    "n": 5,
+    "en": "there are so many of them",
+    "it": "ce ne sono tantissimi",
+    "ex": "ce n'è un sacco",
+    "no": "Tantissimi is the superlative of tanti — \"so many,\" stronger emphasis.",
+    "t": "D"
+   },
+   {
+    "n": 6,
+    "en": "Everything OK? In good shape?",
+    "it": "Tutto a posto? In forma?",
+    "ex": "Tutto bene? Come stai?",
+    "no": "Corrected 'apposto' to 'a posto' — two separate words.",
+    "t": "P"
+   },
+   {
+    "n": 7,
+    "en": "Maximum result with minimum effort",
+    "it": "Il massimo risultato con il minimo sforzo",
+    "ex": "Il massimo con il minimo sforzo",
+    "no": "Corrected 'resultati' to 'risultato' and added the articles — Italian needs 'il' before massimo/minimo here.",
+    "t": "O"
+   },
+   {
+    "n": 8,
+    "en": "It's disconnected / off",
+    "it": "È staccata",
+    "ex": "È spenta (if referring to a device)",
+    "no": "Corrected 'E stacata' — needs the accent (È) and double 'c' (staccata).",
+    "t": "D"
+   },
+   {
+    "n": 9,
+    "en": "she / it was confused",
+    "it": "era confusa",
+    "ex": "era disorientata",
+    "no": "Confusa agrees in gender/number with the subject — confuso if referring to a male/masculine noun.",
+    "t": "F"
+   },
+   {
+    "n": 10,
+    "en": "He/she didn't let you (plural) do it",
+    "it": "Non ve lo ha permesso",
+    "ex": "Non ve l'ha concesso",
+    "no": "\"Ve lo\" = double clitic, indirect (to you-plural) + direct (it) object.",
+    "t": "P"
+   },
+   {
+    "n": 11,
+    "en": "they had her bicycle stolen",
+    "it": "le hanno rubato la bicicletta",
+    "ex": "le è stata rubata la bicicletta",
+    "no": "Indirect object \"le\" (to her) + rubare — the standard way to say something was stolen from someone.",
+    "t": "D"
+   },
+   {
+    "n": 12,
+    "en": "I should do it as soon as possible",
+    "it": "Dovrei farlo il prima possibile",
+    "ex": "Dovrei farlo al più presto",
+    "no": "\"Il prima possibile\" and \"al più presto\" are interchangeable for ASAP.",
+    "t": "T"
+   },
+   {
+    "n": 13,
+    "en": "You think so? / Do you think so?",
+    "it": "Ti pare?",
+    "ex": "Dici?",
+    "no": "Ti pare (lit. \"does it seem so to you\") is a quick, skeptical way to question something.",
+    "t": "O"
+   },
+   {
+    "n": 14,
+    "en": "I want a snack",
+    "it": "Voglio la merenda",
+    "ex": "Ho voglia di uno spuntino",
+    "no": "Merenda specifically means an afternoon snack — a cultural staple, not just any snack.",
+    "t": "E"
+   },
+   {
+    "n": 15,
+    "en": "as soon as possible (or once possible); as much as possible — I try to save as much as possible",
+    "it": "il prima possibile (o appena possibile); il più possibile — Cerco di risparmiare il più possibile",
+    "ex": "Cerco di risparmiare quanto più posso",
+    "no": "Don't confuse \"il prima possibile\" (as soon as) with \"il più possibile\" (as much as) — easy to mix up.",
+    "t": "T"
+   },
+   {
+    "n": 16,
+    "en": "I would never allow myself (to do that)",
+    "it": "Non mi permetterei mai",
+    "ex": "Non oserei mai",
+    "no": "Permettersi in the conditional = \"would allow oneself\" — used for things you consider beneath/inappropriate for you.",
+    "t": "O"
+   },
+   {
+    "n": 17,
+    "en": "You’re often in a bad mood",
+    "it": "Sei spesso di cattivo umore",
+    "ex": "Sei sempre di malumore",
+    "no": "\"Di cattivo umore\" = in a bad mood; pairs with \"di buon umore\" for good mood.",
+    "t": "F"
+   },
+   {
+    "n": 18,
+    "en": "How did you find out?",
+    "it": "Come hai fatto a saperlo?",
+    "ex": "Come l’hai saputo?",
+    "no": "Corrected — missing \"a\" before the infinitive; \"fare a + inf\" = to manage to do something.",
+    "t": "A"
+   },
+   {
+    "n": 19,
+    "en": "Actually, it’s better this way",
+    "it": "In fondo meglio così",
+    "ex": "Tutto sommato è meglio così",
+    "no": "\"In fondo\" = deep down/actually — fixed idiom, no productive slot to vary.",
+    "t": "O"
+   },
+   {
+    "n": 20,
+    "en": "Twice in a row",
+    "it": "Due volte di fila",
+    "ex": "Due volte consecutive",
+    "no": "Corrected — \"volta\" pluralizes after \"due\": \"due volte\", not \"due volta\".",
+    "t": "D"
+   },
+   {
+    "n": 21,
+    "en": "I messed up — I think you’re screwed",
+    "it": "Ho fatto una minchiata, mi sembra che tu sia fregato",
+    "no": "Corrected \"minciata\"→\"minchiata\" (informal/slangy for blunder). FLAG: subject check — \"tu\" (you're screwed) reads oddly if it was your mistake; did you mean \"io\" (I'm screwed)?",
+    "t": "F"
+   },
+   {
+    "n": 22,
+    "en": "Will you get me one?",
+    "it": "Me ne fai una?",
+    "ex": "Me la fai una foto?",
+    "no": "“Ne” stands in for something already understood — a photo, a coffee, whatever came up before this line. Already natural, no correction needed.",
+    "t": "A"
+   },
+   {
+    "n": 23,
+    "en": "Let’s hope for the best.",
+    "it": "Speriamo bene.",
+    "ex": "Speriamo che vada per il meglio.",
+    "no": "“Speriamo per il meglio” is a literal calque of the English — Italians just say “speriamo bene” instead.",
+    "t": "F"
+   },
+   {
+    "n": 24,
+    "en": "As for me, I’m asking you...",
+    "it": "Io invece ti chiedo...",
+    "ex": "Io invece volevo chiederti...",
+    "no": "“Invece” contrasts with something someone else just said — natural as an opener, left as a fragment on purpose.",
+    "t": "A"
+   },
+   {
+    "n": 25,
+    "en": "I had no doubt about it.",
+    "it": "Non ne avevo dubbi.",
+    "ex": "Non avevo dubbi.",
+    "no": "Corrected “non l’avevo dubbi” — dubbi is plural, so it needs “ne” (about it), not the singular “lo.”",
+    "t": "O"
+   },
+   {
+    "n": 26,
+    "en": "It was insanely hot.",
+    "it": "Faceva un caldo assurdo.",
+    "ex": "Faceva un caldo pazzesco.",
+    "no": "Corrected “faceva calda assurda” — impersonal weather always uses “un caldo/freddo” (masculine noun), so the adjective has to agree: assurdo, not assurda.",
+    "t": "D"
+   },
+   {
+    "n": 27,
+    "en": "You can’t throw away the best part.",
+    "it": "La parte migliore non si può buttare via.",
+    "ex": "La parte più buona non si butta.",
+    "no": "“Migliore” reads more natural than “più buona” for “best”; “buttare via” (throw away) is the fuller everyday phrasing.",
+    "t": "E"
+   },
+   {
+    "n": 28,
+    "en": "Start unloading the bike.",
+    "it": "Inizia a scaricare la bici.",
+    "ex": "Comincia a scaricare la bici.",
+    "no": "Corrected — “iniziare” always needs “a” before an infinitive.",
+    "t": "D"
+   },
+   {
+    "n": 29,
+    "en": "From now on, you’re allowed to have one friend.",
+    "it": "D’ora in poi ti è permesso avere un amico.",
+    "ex": "Da ora in poi puoi avere un amico.",
+    "no": "“D’ora in poi” and “da ora in poi” are interchangeable for “from now on.”",
+    "t": "P"
+   },
+   {
+    "n": 30,
+    "en": "From now on, you can’t have more than one friend with the same name.",
+    "it": "Da ora in poi non puoi avere più di un’amica con lo stesso nome.",
+    "no": "Added the accent — “piu” → “più.”",
+    "t": "P"
+   },
+   {
+    "n": 31,
+    "en": "Same for me, that works perfectly.",
+    "it": "Per me uguale, per me va benissimo.",
+    "ex": "Per me va bene, indifferente.",
+    "no": "“Per me va bene/benissimo” is the everyday way to say something works for you.",
+    "t": "O"
+   },
+   {
+    "n": 32,
+    "en": "Would a place like this work for you all?",
+    "it": "Un posto così vi andrebbe?",
+    "ex": "Vi andrebbe un posto così?",
+    "no": "“Andare” in the conditional + an indirect pronoun (vi/ti) is the go-to way to float a suggestion.",
+    "t": "T"
+   },
+   {
+    "n": 33,
+    "en": "Jordan’s dreams came true.",
+    "it": "I sogni di Jordan si sono realizzati.",
+    "no": "Flagging this one — guessed you meant “Jordan’s dreams came true,” fixed the spelling (realisato → realizzato) and swapped “da” → “di” for possession. If you meant something else, tell me and I’ll redo it.",
+    "t": "F"
+   },
+   {
+    "n": 34,
+    "en": "Before now.",
+    "it": "Prima d’ora.",
+    "ex": "Fino ad ora.",
+    "no": "Corrected the spacing — “prima dora” → “prima d’ora” (the apostrophe elides “di” + “ora”).",
+    "t": "T"
+   },
+   {
+    "n": 35,
+    "en": "As regards...",
+    "it": "Per quanto riguarda...",
+    "ex": "Per quel che riguarda...",
+    "no": "Stock connector for introducing a topic — goes straight into a noun, no extra preposition needed after “riguarda.”",
+    "t": "O"
+   },
+   {
+    "n": 36,
+    "en": "I don’t feel comfortable.",
+    "it": "Non mi sento a mio agio.",
+    "ex": "Non mi sento a mio agio con lui.",
+    "no": "“Sentirsi a proprio agio” (feel at ease) — the possessive agrees with the subject: a mio/tuo/suo agio.",
+    "t": "F"
+   },
+   {
+    "n": 37,
+    "en": "You must have been tired.",
+    "it": "Devi essere stato stanco.",
+    "ex": "Sarai stato stanco.",
+    "no": "“Dovere essere stato + [participio]” is the standard way to guess about someone’s past state.",
+    "t": "P"
+   },
+   {
+    "n": 38,
+    "en": "We’re not demanding anything.",
+    "it": "Non pretendiamo niente.",
+    "ex": "Non vogliamo niente di più.",
+    "no": "“Pretendere” is a false friend — it means “to demand/expect,” not “to pretend” (that’s fingere).",
+    "t": "O"
+   },
+   {
+    "n": 39,
+    "en": "In that case, you’d be right.",
+    "it": "In quel caso avresti ragione.",
+    "ex": "In tal caso avresti ragione.",
+    "no": "“In quel caso” + conditional is the standard way to hedge an agreement.",
+    "t": "O"
+   },
+   {
+    "n": 40,
+    "en": "I don’t want any more of it.",
+    "it": "Non ne voglio più.",
+    "ex": "Non voglio più di così.",
+    "no": "Added the accent to your alt phrasing — “cosi” → “così.” Both versions are natural; the first is the more common everyday one.",
+    "t": "E"
+   },
+   {
+    "n": 41,
+    "en": "Shot to the head.",
+    "it": "Tiro in testa.",
+    "ex": "Colpo in testa.",
+    "no": "Kept as-is — the best translation depends on context (a sports shot vs. a literal hit), let me know if you meant something more specific.",
+    "t": "D"
+   },
+   {
+    "n": 42,
+    "en": "In the right way.",
+    "it": "Nel modo giusto.",
+    "ex": "Nella maniera giusta.",
+    "no": "“Nel modo giusto/sbagliato” — common adverbial phrase for describing how something’s done.",
+    "t": "O"
+   },
+   {
+    "n": 43,
+    "en": "By the way, thanks for the update.",
+    "it": "Comunque, grazie per l'aggiornamento.",
+    "ex": "Intanto, grazie per l'aggiornamento (meanwhile)",
+    "no": "Corrected “into” → “intanto” (meanwhile/in the meantime) — likely autocorrect or a mishearing.",
+    "t": "P"
+   },
+   {
+    "n": 44,
+    "en": "Only like this, otherwise you can’t come in.",
+    "it": "Soltanto così, altrimenti non potete entrare.",
+    "ex": "Solo così, sennò non potete entrare.",
+    "no": "Added the accent — “cosi” → “così.”",
+    "t": "D"
+   },
+   {
+    "n": 45,
+    "en": "By (the end of) this week.",
+    "it": "Entro la settimana.",
+    "ex": "Entro fine settimana.",
+    "no": "“Entro” + a time period = “by/within” — entro la settimana, entro domani, entro fine mese.",
+    "t": "T"
+   },
+   {
+    "n": 46,
+    "en": "I ate some chicken Cameron made.",
+    "it": "Ho mangiato del pollo preparato da Cameron.",
+    "ex": "Ho mangiato il pollo che ha fatto Cameron.",
+    "no": "“Preparato da” (prepared by) is a touch more formal than the relative-clause alt — both are natural.",
+    "t": "E"
+   },
+   {
+    "n": 47,
+    "en": "How much do you miss it? / How much longer for you?",
+    "it": "Quanto ti manca?",
+    "ex": "Quanto manca ancora?",
+    "no": "“Mancare” does double duty: “ti manca” can mean “you miss it” or “you have X left” — context decides which. Flagging the ambiguity rather than guessing.",
+    "t": "F"
+   },
+   {
+    "n": 48,
+    "en": "The enthusiasm.",
+    "it": "L’entusiasmo.",
+    "ex": "Che entusiasmo!",
+    "no": "Corrected the article — “la entusiasmo” → “l’entusiasmo.” Entusiasmo is masculine (il/l’), even though it can feel like it should take “la.”",
+    "t": "F"
+   },
+   {
+    "n": 49,
+    "en": "Without you knowing it.",
+    "it": "Senza che tu lo sappia.",
+    "ex": "Senza che tu te ne accorga.",
+    "no": "“Senza che” always triggers the subjunctive — sappia, not sai.",
+    "t": "P"
+   },
+   {
+    "n": 50,
+    "en": "The same size.",
+    "it": "La stessa grandezza.",
+    "ex": "Le stesse dimensioni.",
+    "no": "“Grandezza” covers size/magnitude generally; “dimensioni” is more specific to physical measurements.",
+    "t": "D"
+   },
+   {
+    "n": 51,
+    "en": "I’m not used to someone doing that.",
+    "it": "Non sono abituato al fatto che qualcuno lo faccia.",
+    "ex": "Non sono abituato a queste cose.",
+    "no": "Completed the fragment — “abituato che” + subjunctive (faccia) is used when it’s someone else doing the thing, not you.",
+    "t": "F"
+   },
+   {
+    "n": 52,
+    "en": "How sure are you about it?",
+    "it": "Quanto ne sei sicura?",
+    "ex": "Quanto ne sei convinta?",
+    "no": "“Sicura” agrees with a female subject — sicuro if you’re asking a man.",
+    "t": "A"
+   },
+   {
+    "n": 53,
+    "en": "A doubt just occurred to me.",
+    "it": "Mi è venuto un dubbio.",
+    "ex": "Mi è venuta un’idea.",
+    "no": "Added the accent — “mi e” → “mi è.” “Venire un dubbio/un’idea/una voglia” is the standard construction for something suddenly occurring to you.",
+    "t": "O"
+   },
+   {
+    "n": 54,
+    "en": "You need to process everything.",
+    "it": "Devi processare tutto.",
+    "ex": "Devi elaborare/valutare tutto.",
+    "no": "“Processare” (to process, e.g. clearing an inbox) is common tech/business Italian borrowed from English — perfectly natural in that context.",
+    "t": "D"
+   },
+   {
+    "n": 55,
+    "en": "Just for a drink, we can sit down",
+    "it": "Giusto per bere qualcosa, possiamo sederci",
+    "ex": "Ci sediamo a bere qualcosa?",
+    "no": "Giusto per = just for the sake of. Your original repeated “bere qualcosa” twice, so I trimmed it.",
+    "t": "E"
+   },
+   {
+    "n": 56,
+    "en": "Whatever you like",
+    "it": "Come ti pare",
+    "ex": "Come vuoi tu",
+    "no": "Casual and a bit blunt — fine with friends, can sound dismissive with someone you don’t know.",
+    "t": "O"
+   },
+   {
+    "n": 57,
+    "en": "I’ll think about it as I go — I’ll wing it",
+    "it": "Ci penso strada facendo, farò a braccio",
+    "ex": "Vedo strada facendo, improvviso",
+    "no": "Strada facendo = along the way. A braccio = off the cuff, improvised.",
+    "t": "O"
+   },
+   {
+    "n": 58,
+    "en": "I didn’t do it on purpose",
+    "it": "Non l’ho fatto apposta",
+    "ex": "Non l’ho fatto di proposito",
+    "no": "Apposta is the everyday word; di proposito is a touch more formal.",
+    "t": "P"
+   },
+   {
+    "n": 59,
+    "en": "Then I wanted to ask",
+    "it": "Poi volevo chiedere",
+    "ex": "Poi volevo chiederti una cosa",
+    "no": "Imperfect “volevo” softens the ask — the native way to open a question, not “voglio.”",
+    "t": "A"
+   },
+   {
+    "n": 60,
+    "en": "I’m loving this",
+    "it": "Mi sta piacendo un sacco.",
+    "ex": "Me lo sto godendo",
+    "no": "Natives usually say mi sta piacendo or me lo sto godendo; amare is strong for things. “Questo lo” puts the emphasis up front.",
+    "t": "F"
+   },
+   {
+    "n": 61,
+    "en": "That’s not a short amount of time",
+    "it": "Non è poco tempo",
+    "ex": "È un bel po’ di tempo",
+    "no": "Non è poco = understatement meaning “quite a lot.” Works alone for any amount.",
+    "t": "T"
+   },
+   {
+    "n": 62,
+    "en": "If it’s not urgent, I can call you back",
+    "it": "Se non è urgente, ti posso richiamare",
+    "ex": "Se non è urgente, ti richiamo dopo",
+    "no": "Ri- prefix = back/again: richiamare. Say the full “non è urgente.”",
+    "t": "T"
    }
   ]
  }
