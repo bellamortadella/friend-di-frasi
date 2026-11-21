@@ -24,8 +24,8 @@
    {
     "n": 4,
     "en": "open for me_",
-    "it": "Mi potrebbe aprire la porta della machina",
-    "ex": "Mi potrebbe aprire la porta della machina (mi apri la porta)",
+    "it": "Mi potrebbe aprire la porta della macchina?",
+    "ex": "Mi potrebbe aprire la porta della macchina? (Mi apri la porta?)",
     "t": "A"
    },
    {
@@ -116,7 +116,7 @@
     "n": 18,
     "en": "It's been a while _",
     "it": "È passato molto tempo dall'ultima volta che ho mangiato così bene.",
-    "ex": "E passato {un sacco di}{molto}{tanto} tempo {da quando}{dall'ultima volta che} ...ho preso un volo da qui ...ho mangiato così bene",
+    "ex": "È passato {un sacco di}{molto}{tanto} tempo {da quando}{dall'ultima volta che} ...ho preso un volo da qui ...ho mangiato così bene",
     "t": "T"
    },
    {
@@ -165,7 +165,7 @@
    {
     "n": 26,
     "en": "as long as_",
-    "it": "Ti aiuto, basta che mi prometti di darmi un baccino..",
+    "it": "Ti aiuto, basta che mi prometti di darmi un bacino..",
     "ex": "vengo, ma solo se ci fermiamo prima qui",
     "t": "O"
    },
@@ -173,13 +173,13 @@
     "n": 27,
     "en": "Would've loved to",
     "it": "Mi sarebbe piaciuto.",
-    "ex": "Odio quando vengo rimproverato, soprattutto per cose piccole",
     "t": "F"
    },
    {
     "n": 28,
     "en": "Hate being told off",
     "it": "Odio quando mi rimproverano, soprattutto per cose piccole.",
+    "ex": "Odio quando vengo rimproverato, soprattutto per cose piccole",
     "t": "F"
    },
    {
@@ -215,7 +215,7 @@
    {
     "n": 34,
     "en": "Its so massive_",
-    "it": "Ma quanto enorme!",
+    "it": "Ma quanto è enorme!",
     "t": "F"
    },
    {
@@ -239,7 +239,7 @@
    {
     "n": 38,
     "en": "Best i've had..",
-    "it": "Il migliore che tu abbia mai mangiato.",
+    "it": "Il migliore che io abbia mai mangiato.",
     "ex": "la cosa più strana che abbia mai visto; il posto più bello che tu abbia mai visitato",
     "t": "E"
    },
@@ -337,7 +337,7 @@
    {
     "n": 54,
     "en": "Im shocked",
-    "it": "Sono un po' shockate",
+    "it": "Sono un po' scioccato.",
     "t": "F"
    },
    {
@@ -349,7 +349,7 @@
    {
     "n": 56,
     "en": "I reckon ill do it like this",
-    "it": "Mi sa che faccio cosi",
+    "it": "Mi sa che faccio così",
     "t": "O"
    },
    {
@@ -470,7 +470,7 @@
    {
     "n": 76,
     "en": "We had something come up, cant make it",
-    "it": "",
+    "it": "Ci è saltato fuori un imprevisto, non riusciamo a venire.",
     "t": "T"
    },
    {
@@ -488,13 +488,13 @@
    {
     "n": 79,
     "en": "You lied, you told a lie, you are a liar",
-    "it": "Hai mentito, Hai detto una bugia, Sei un bugiarda",
+    "it": "Hai mentito, hai detto una bugia, sei una bugiarda.",
     "t": "F"
    },
    {
     "n": 80,
     "en": "Until - i have had my coffee, ill wait until you arrive",
-    "it": "Nessuno mi parli finché non avrò bevuto, Ti aspetto finché non arrivi.",
+    "it": "Nessuno mi parli finché non avrò bevuto il caffè. Ti aspetto finché non arrivi.",
     "ex": "fino a quando arrivo, Non esco fino a quando finisco (fino a quando or finche non)",
     "no": "Non esco finché non finisco. ⭐ Non esco fino a quando finisco.",
     "t": "T"
@@ -521,15 +521,15 @@
    },
    {
     "n": 84,
-    "en": "Have you even been?",
-    "it": "Sei mai stato in Australia?...  Sei mai stato a Roma? ... Sono da Australia, ci sei mai stato?,",
+    "en": "Have you ever been?",
+    "it": "Sei mai stato in Australia?... Sei mai stato a Roma?... Vengo dall'Australia, ci sei mai stato?",
     "no": "più naturale quando il luogo è già chiaro",
     "t": "A"
    },
    {
     "n": 85,
     "en": "Im telling you.. im not worried at all",
-    "it": "Ti avviso, non sono affatto preoccupato, Non sono per niente preoccupato.",
+    "it": "Te lo dico, non sono affatto preoccupato. Non sono per niente preoccupato.",
     "ex": "Non capisco affatto, Non mi piace affatto",
     "t": "F"
    },
@@ -584,7 +584,7 @@
    {
     "n": 3,
     "en": "I fell off my bike",
-    "it": "Sono caduto dalle scale con la bici.",
+    "it": "Sono caduto dalla bici.",
     "t": "D"
    },
    {
@@ -608,7 +608,7 @@
    {
     "n": 7,
     "en": "Update me what you do",
-    "it": "Aggiornami cosa fai",
+    "it": "Aggiornami su cosa fai.",
     "t": "A"
    },
    {
@@ -645,13 +645,13 @@
     "n": 13,
     "en": "Better, Bigger than Expected..",
     "it": "È più grande di quello che ti aspetti; Milano, Mi è piaciuto più di quanto pensassi.",
-    "ex": "Più facile di quello che mi pensassi;  È più difficile di quanto immaginassi",
+    "ex": "Più facile di quanto pensassi; È più difficile di quanto immaginassi",
     "t": "O"
    },
    {
     "n": 14,
     "en": "What are you doing in italy?!",
-    "it": "Che ci fai qua - mi sono perso. Per il cibo, ovviamente. Mi hanno detto che qui il caffè era migliore.",
+    "it": "Che ci fai in Italia? Per il cibo, ovviamente. Mi hanno detto che qui il caffè era migliore.",
     "t": "A"
    },
    {
@@ -676,7 +676,7 @@
    {
     "n": 18,
     "en": "Im struggling.. i struggle to ..",
-    "it": "Faccio fatica a concentrarmi... Faccio fatica a esprimermi in italiano... Ho fatica a finire questo lavoro",
+    "it": "Faccio fatica a concentrarmi... Faccio fatica a esprimermi in italiano... Faccio fatica a finire questo lavoro",
     "t": "F"
    },
    {
@@ -688,7 +688,7 @@
    {
     "n": 20,
     "en": "I don't eat meat anymore",
-    "it": "Non mango più carne",
+    "it": "Non mangio più carne.",
     "t": "E"
    },
    {
@@ -712,19 +712,19 @@
    {
     "n": 24,
     "en": "We got lost in conversation",
-    "it": "Ci siamo persi in chiacchiera",
+    "it": "Ci siamo persi a chiacchierare.",
     "t": "P"
    },
    {
     "n": 25,
     "en": "Changed my mind",
-    "it": "Ho cambiato idea. Cambiamo di programma,",
+    "it": "Ho cambiato idea. Cambio di programma.",
     "t": "O"
    },
    {
     "n": 26,
     "en": "Is anyone here?",
-    "it": "C'è già qualcuno?",
+    "it": "C'è qualcuno?",
     "t": "A"
    },
    {
@@ -815,7 +815,7 @@
    {
     "n": 41,
     "en": "Im thinking things through (reasoning)",
-    "it": "\"Aspetta, sto ragionando.",
+    "it": "Aspetta, sto ragionando.",
     "t": "O"
    },
    {
@@ -888,7 +888,7 @@
    {
     "n": 53,
     "en": "I would like you to speak to me in italian",
-    "it": "Mi dispiace ma, vorrei che tu mi parlassi in l'italiano",
+    "it": "Mi dispiace, ma vorrei che tu mi parlassi in italiano.",
     "t": "A"
    },
    {
@@ -900,7 +900,7 @@
    {
     "n": 55,
     "en": "Common, it will be good for you",
-    "it": "Dai, ti farà bene... Credo che faccia bene a te",
+    "it": "Dai, ti farà bene... Credo che ti faccia bene.",
     "t": "O"
    },
    {
@@ -1001,15 +1001,14 @@
    },
    {
     "n": 72,
-    "en": "Immagino ed è anche il motivo per cui sia andato lì?",
+    "en": "A thin slice of bread",
     "it": "Una fetta sottile di pane",
-    "chk": "English and Italian don't match in the sheet.",
     "t": "E"
    },
    {
     "n": 73,
     "en": "I woke up alot last night",
-    "it": "si è svegliato un sacco di volte la scorsa notte",
+    "it": "Mi sono svegliato un sacco di volte stanotte.",
     "t": "D"
    },
    {
@@ -1033,7 +1032,7 @@
    {
     "n": 77,
     "en": "I called to say goodnight",
-    "it": "Ti stavo chiamando per dirti buonanotte",
+    "it": "Ti ho chiamato per darti la buonanotte.",
     "t": "P"
    },
    {
@@ -1063,7 +1062,7 @@
    {
     "n": 82,
     "en": "Espically, Basically, Mainly",
-    "it": "Sono stanco, sopratutto dopo il weekend scorso. Fondamentalmente non cambia niente. Principalmente per questo motivo ho deciso di andare",
+    "it": "Sono stanco, soprattutto dopo il weekend scorso. Fondamentalmente non cambia niente. Principalmente per questo motivo ho deciso di andare.",
     "t": "O"
    },
    {
@@ -1099,7 +1098,7 @@
    {
     "n": 88,
     "en": "I have to tell you, its important you know",
-    "it": "Devo dirti una cosa, perché e importante che tu la sappia",
+    "it": "Devo dirti una cosa, perché è importante che tu la sappia.",
     "t": "P"
    },
    {
@@ -1117,7 +1116,7 @@
    {
     "n": 91,
     "en": "I can get used to this",
-    "it": "mi posso abituare",
+    "it": "Mi ci potrei abituare.",
     "t": "F"
    },
    {
@@ -1152,13 +1151,13 @@
    {
     "n": 3,
     "en": "It would be nice to go on a trip together",
-    "it": "Pero sarebbe bello fare un viaggio insieme",
+    "it": "Sarebbe bello fare un viaggio insieme.",
     "t": "T"
    },
    {
     "n": 4,
     "en": "You wont go for a swim. are you mad?",
-    "it": "Non te lo fai il bagno?Ma sei matta?",
+    "it": "Non te lo fai il bagno? Ma sei matta?",
     "t": "F"
    },
    {
@@ -1170,7 +1169,7 @@
    {
     "n": 6,
     "en": "We'll continue this conversation tonight",
-    "it": "Proseguiamo il discorso stanotte. Continuiamo a parlarne stasera",
+    "it": "Proseguiamo il discorso stasera. Continuiamo a parlarne stasera.",
     "t": "T"
    },
    {
@@ -1212,7 +1211,7 @@
    {
     "n": 13,
     "en": "You dont know how imporatant this is to me",
-    "it": "Non sai quanto significa per me",
+    "it": "Non sai quanto sia importante per me.",
     "t": "P"
    },
    {
@@ -1236,13 +1235,13 @@
    {
     "n": 17,
     "en": "Now and then, i wake up early",
-    "it": "Ogni tanto sveglio presto",
+    "it": "Ogni tanto mi sveglio presto.",
     "t": "T"
    },
    {
     "n": 18,
     "en": "I just returned from Rick's",
-    "it": "Io appena tornata da Rick",
+    "it": "Sono appena tornata da Rick.",
     "t": "D"
    },
    {
@@ -1368,7 +1367,7 @@
    {
     "n": 39,
     "en": "last night was definitely better",
-    "it": "Ma sta notte era decisamente meglio",
+    "it": "Ma ieri sera è andata decisamente meglio.",
     "t": "F"
    },
    {
@@ -1410,7 +1409,7 @@
    {
     "n": 46,
     "en": "I need to act more like a fun person",
-    "it": "Dovrei comportarmi più come persona divertente",
+    "it": "Dovrei comportarmi più da persona divertente.",
     "t": "F"
    },
    {
@@ -1428,13 +1427,13 @@
    {
     "n": 49,
     "en": "I had it, but i got rid of it",
-    "it": "Ce l’avevo, ma l’ho tolto via.",
+    "it": "Ce l'avevo, ma me ne sono liberato.",
     "t": "D"
    },
    {
     "n": 50,
     "en": "Get rid of your stuff",
-    "it": "Toglie la tua roba",
+    "it": "Togli la tua roba.",
     "t": "D"
    },
    {
@@ -1446,7 +1445,7 @@
    {
     "n": 52,
     "en": "Im not sure. but from the top of my head",
-    "it": "A memoria, direi che è a 10 km.",
+    "it": "Non sono sicuro, ma a memoria direi che è a 10 km.",
     "t": "O"
    },
    {
@@ -1530,7 +1529,7 @@
    {
     "n": 66,
     "en": "You make me happy and this is everything",
-    "it": "mi rendi felice e questo è tutto. Mi fai sentire",
+    "it": "Mi rendi felice, e questo è tutto.",
     "t": "P"
    },
    {
@@ -1554,7 +1553,7 @@
    {
     "n": 70,
     "en": "I want to feel close to you",
-    "it": "Io voglio affezionarmi a te",
+    "it": "Voglio sentirmi vicino a te.",
     "t": "P"
    },
    {
@@ -1590,7 +1589,7 @@
    {
     "n": 76,
     "en": "I thought i was late. I thought i made a mistake",
-    "it": "Pensavo di essere in ritardo. Penso di aver sbagliato",
+    "it": "Pensavo di essere in ritardo. Pensavo di aver sbagliato.",
     "t": "O"
    },
    {
@@ -1614,15 +1613,13 @@
    {
     "n": 80,
     "en": "I dont like the film, but ill watch it anyway",
-    "it": "I dont like the film, but ill watch it anyway",
-    "chk": "The Italian cell holds the English sentence.",
+    "it": "Il film non mi piace, ma lo guarderò comunque.",
     "t": "O"
    },
    {
     "n": 81,
     "en": "Ill take the fish, actually (instead) ill take the meat",
-    "it": "Non mi piace quel film, ma lo guarderò comunque",
-    "chk": "The Italian is the film sentence from the card above.",
+    "it": "Prendo il pesce, anzi no, prendo la carne.",
     "t": "E"
    },
    {
@@ -1658,7 +1655,7 @@
    {
     "n": 87,
     "en": "I thought you were feeling bad",
-    "it": "pensavo che tu sentissi male; io vado una riunione",
+    "it": "Pensavo che ti sentissi male.",
     "t": "P"
    }
   ]

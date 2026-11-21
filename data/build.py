@@ -19,18 +19,15 @@ TAGS = {
            "DOTEEADOOT" "PPPPEPPPDP" "FPPPTOADPO" "EPFAEEP",
 }
 
-# Rows whose sheet content looks wrong. Shown with a small "check in sheet" note.
-CHECK = {
-    ("1.1", 72): "English and Italian don't match in the sheet.",
-    ("1.2", 80): "The Italian cell holds the English sentence.",
-    ("1.2", 81): "The Italian is the film sentence from the card above.",
-}
-MISSING = {("1.0", 76)}  # Italian cell holds unrelated text; hide it.
+# Corrections layered over the sheet (data/fixes.json). Once a fix is also made in the
+# sheet, its entry is harmless; delete it whenever convenient.
+FIXES = json.load(open(os.path.join(HERE, "fixes.json"), encoding="utf-8"))
+FIXES.pop("_about", None)
 
 
 def main(path):
     rows = list(csv.reader(open(path, encoding="utf-8")))
-    decks = []
+    decks, used, log = [], set(), []
     for name, off in [("1.0", 0), ("1.1", 6), ("1.2", 12)]:
         cards = []
         for r in rows[1:]:
@@ -39,12 +36,17 @@ def main(path):
             if not (en or it):
                 continue
             n = len(cards) + 1
-            if (name, n) in MISSING:
-                it = ""
+            fx = FIXES.get(f"{name}|{en}")
+            if fx:
+                used.add(f"{name}|{en}")
+                old = {"en": en, "it": it, "ex": ex}
+                en = fx["en"] if "en" in fx else en
+                it = fx["it"] if "it" in fx else it
+                ex = (fx["ex"] or "") if "ex" in fx else ex
+                log.append((name, n, old, {"en": en, "it": it, "ex": ex}, fx.get("why", "")))
             c = {"n": n, "en": en, "it": it}
             if ex: c["ex"] = ex
             if no: c["no"] = no
-            if (name, n) in CHECK: c["chk"] = CHECK[(name, n)]
             cards.append(c)
         tags = TAGS[name]
         assert len(tags) == len(cards), f"{name}: {len(tags)} tags for {len(cards)} cards"
@@ -65,7 +67,28 @@ def main(path):
             '<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}'
             'body{margin:0}[hidden]{display:none!important}</style>\n</head>\n<body>\n')
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(head + out + "\n</body>\n</html>\n")
-    print("built:", ", ".join(f"{d['id']}={len(d['cards'])}" for d in decks))
+    write_fix_list(log)
+    for k in sorted(set(FIXES) - used):
+        print("fix not applied (row changed or already fixed in sheet?):", k)
+    print("built:", ", ".join(f"{d['id']}={len(d['cards'])}" for d in decks), f"| {len(log)} fixes applied")
+
+
+def write_fix_list(log):
+    """sheet-fixes.md: what to change in the Google Sheet / Anki so they match the app."""
+    out = ["# Sheet fixes", "",
+           "Corrections the app applies on top of the sheet. Copy them into the sheet (and Anki) to keep everything in sync.", ""]
+    for deck in ("1.0", "1.1", "1.2"):
+        rows = [x for x in log if x[0] == deck]
+        if not rows:
+            continue
+        out += [f"## Deck {deck}", ""]
+        for _, n, old, new, why in rows:
+            out.append(f"**#{n} · {new['en']}** — {why}")
+            for f, label in (("en", "English"), ("it", "Italian"), ("ex", "E.g.")):
+                if old[f] != new[f]:
+                    out.append(f"- {label}: ~~{old[f] or '(empty)'}~~ → {new[f] or '(remove)'}")
+            out.append("")
+    open(os.path.join(ROOT, "sheet-fixes.md"), "w", encoding="utf-8").write("\n".join(out))
 
 
 if __name__ == "__main__":
